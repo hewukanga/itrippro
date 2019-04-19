@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>i旅行-注册页</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/register.css"/>
+	<script src="jquery-3.3.1.js"></script>
+	<script src="layer-v3.1.1/layer/layer.js"></script>
+    <link rel="stylesheet" href="layui-v2.4.5/layui/css/layui.css">
+    <script src="layui-v2.4.5/layui/layui.js"></script>
+</head>
+<body>
+ <div class="travel-login">
+     <header class="clearfix">
+         <img src="images/img/i-LOGO-02-01.png">
+         <div class="login_toolbox">
+			<a class="login_username" href="login.html">登录</a>
+			|
+			<a class="login_kefu" href="#">客服中心</a>
+		</div>
+     </header>
+     <!-- 主体部分开始 -->
+     <section >
+    	<aside class="i-register-left clearfix">
+    		<div class="i-reg-top">
+				<label>
+					<input name="reg"  checked="checked" type="radio">手机注册
+				</label> 
+				<label>
+					<input name="reg" type="radio">邮箱注册
+				</label>
+    		</div>
+    		<div class="i-reg-bottom cur">
+    			<form class="fromOne">
+					<div class="i_mobile">
+						手机号  <input name="phone" id="phone" type="text" placeholder="请输入手机号码" /><span></span>
+					</div>
+					<div class="i_pwd">
+						登录密码  <input name="pwd" id="pwd" type="password" placeholder="请输入密码" /><span></span>
+					</div>
+					<div class="i_check">
+						验证码  <input type="text" id="inputyanzm" placeholder="请输入验证码" /><span></span>
+						<div class="i_check_in"></div><i class="idCode">换一张</i>
+					</div>
+					<div class="i_lives">
+						激活码  <input type="text" id="jihuoma" placeholder="请输入激活码" /><button type="button" id="duanxinyzm">获取激活码</button>
+					</div>
+
+					<div class="i-reg-check">
+						<input id="i-reg-info" checked="checked" type="checkbox">
+						<label for="i-reg-info">
+						我已经阅读并同意遵守
+						<a class="agreement" href="javascript:;">《i旅行用户服务协议》</a>
+						</label>
+					</div>
+					<div class="i-reg-sub">
+						<input class="submitOne" type="button" value="同意协议并注册">
+					</div>
+    			</form>
+    		</div>
+    		<div class="i-reg-bottom">
+    			<form class="fromTwo">
+					<div class="i_mobile i_mail">
+						注册邮箱  <input name="mail" id="mail" type="text" placeholder="请输入邮箱" /><span></span>
+					</div>
+					<div class="i_pwd">
+						登录密码  <input name="password" id="password" type="password" placeholder="请输入密码" /><span></span>
+					</div>
+					<div class="i_check">
+						验证码  <input type="text" placeholder="请输入验证码" id="yanzhengma"/><span></span>
+						<div class="i_check_in"></div><i class="idCode">换一张</i>
+					</div>
+					<div class="i_lives">
+						激活码  <input type="text" id="code" placeholder="请输入激活码" />
+						<button type="button" id="huodecode">获取激活码</button>
+					</div>
+
+					<div class="i-reg-check">
+						<input id="i-reg-info" checked="checked" type="checkbox">
+						<label for="i-reg-info">
+						我已经阅读并同意遵守
+						<a class="agreement" href="javascript:;">《i旅行用户服务协议》</a>
+						</label>
+					</div>
+					<div class="i-reg-sub">
+						<input class="submitTwo" type="button" value="同意协议并注册">
+					</div>
+    			</form>
+    		</div>
+
+    	</aside>
+    	<aside class="i-register-right"></aside>
+     </section>
+     <!-- 主体部分结束 -->
+
+     <!-- footer开始 -->
+     <footer>
+         <div class="i-footer clearfix">
+             <div class="i-footer-wrap">
+                 <p>Copyright©1999-2016, ctrip.com. All rights reserved. | <a href="#">ICP证：沪B2</a></p>
+                 <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
+                 <p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
+                 <ul>
+                     <li><a href="#"><img src="images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
+                     <li><a href="#"><img src="images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
+                 </ul>
+             </div>
+         </div>
+         <!-- footer结束 -->
+     </footer>
+ </div>
+<script>
+
+    //获取短信验证码
+    var dxyzm="";
+    $("#duanxinyzm").click(function(){
+        var phone = $("#phone").val();
+        if(phone==null||phone==""){
+            layer.msg("请输入手机号码");
+            return;
+        }
+        var indexx = layer.open({
+            type:3,
+            content:"验证码发送中..."
+        });
+        $.ajax({
+            url:"duanxin?phone="+phone,
+            dataType:"json",
+            type:"post",
+            async:false,
+            success:function(data){
+                if(data!=null&&data!=""){
+                    layer.close(indexx)
+                    layer.msg("已发送");
+                    dxyzm=data;
+                    dxcountDown();
+                }else{
+                    layer.msg("获取失败,请重新获取");
+                }
+            }
+        })
+    })
+    // 邮箱注册
+    var checkCode = "";//用来接激活码
+    $("#huodecode").click(function(){
+        var email = $("#mail").val();
+        if (email == null || email == "") {
+            layer.msg("请输入邮箱！！！");
+            return;   //如果未输入邮箱 则直接停止
+        }
+        var index = layer.open({
+            type:3,
+            content:"邮件发送中..."
+        });
+
+        $.ajax({
+            url: "getCheckCode?email=" + email,
+            type: "post",
+            async:false,
+            dataType:"json",
+            success: function (text) {//text就是后台返回过来的激活码
+                if (text != null && text != "") {
+                    layer.close(index);
+                    layer.msg("已发送");
+                    checkCode  = text;//赋值给checkCode  之后可以拿来和输入的激活码进行判断 因为这个肯定是正确的 是后台生成发给用户的激活码  到时候拿来和用户输入的激活进行判断正误
+                    countDown();
+                } else {
+                    layer.msg("获取失败，请重新获取");//判断  获取成功就走上面 获取失败就走下面
+                }
+            }
+        });
+    })
+
+    var maxTime = 60;
+    function countDown(){
+        if (maxTime == 0){
+            checkCode = "";
+            $("#huodecode").removeClass("layui-btn-disabled");
+            $("#huodecode").removeAttr("disabled")
+            $("#huodecode").html("获取验证码");
+            maxTime = 60;
+        }else{
+            $("#huodecode").attr("disabled","disabled");
+            $("#huodecode").addClass("layui-btn-disabled");
+            $("#huodecode").html(maxTime+"秒后重新获取");
+            maxTime--;
+            setTimeout(countDown,1000);
+        }
+    };
+    var max = 60;
+    function dxcountDown(){
+        if (max == 0){//如果max等于0  则说明
+            dxyzm = "";
+            $("#duanxinyzm").removeClass("layui-btn-disabled");
+            $("#duanxinyzm").removeAttr("disabled")
+            $("#duanxinyzm").html("获取验证码");
+            max = 60;
+        }else{
+            $("#duanxinyzm").attr("disabled","disabled");
+            $("#duanxinyzm").addClass("layui-btn-disabled");
+            $("#duanxinyzm").html(max+"秒后重新获取");
+            max--;
+            setTimeout(dxcountDown,1000);
+        }
+    };
+</script>
+</body>
+</html>
+<script src="lib/jquery-1.11.1.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/register.js"></script>
