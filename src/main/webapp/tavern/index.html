@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,8 +16,20 @@
     <script src="../lib/cityselect/cityselect.js" type="text/javascript"></script>
     <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../lib/My97DatePicker/WdatePicker.js"></script>
+    <script src="../js/jquery-3.3.1.js"></script>
 </head>
 <body>
+<script>
+    $(function () {
+       $("#i_btn_list").click(function () {
+           var name=$("#citySelect_four").val();
+           var hotellevel=$("#hotellevel").val();
+           var details=$("key").val();
+           $("#list_form").attr("action","seleHotels?name="+name+"&hotellevel="+hotellevel+"&details="+details);
+           $("#list_form").attr("method","post");
+       }) ;
+    });
+</script>
 <!-- 头部开始 -->
 <div class="i-top clearfix">
     <div class="i-top-wrap">
@@ -78,14 +90,12 @@
                 <div class="i_box">
                     <div class="i_title">
                         <a href="javascript:;" class="line">国内酒店</a>
-                        <a href="javascript:;">海外酒店</a>
-                        <a href="javascript:;">酒店团购</a>
                     </div>
                     <!--1-->
                     <div class="discount i_show">
-                        <form action="tavern_list.html">
+                        <form id="list_form">
                             <div class="i_destin">目的地 <input type="text" id="citySelect_four"
-                                                             placeholder="三亚"/>
+                                                             placeholder="北京"/>
                             </div>
                             <div class="i_live">
                                 入住时间 <input type="text" placeholder="2016.12待定" class="Wdate"
@@ -94,86 +104,23 @@
                                             onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
                             </div>
                             <div class="i_rank">
-                                酒店级别 <select name="" id="">
-                                <option selected="selected">不限</option>
-                                <option>五星级/豪华</option>
-                                <option>四星级/高档</option>
-                                <option>三星级/舒适</option>
-                                <option>二星级以下/经济</option>
+                                酒店级别 <select name="hotellevel" id="hotellevel">
+                                <option selected="selected" value="0">不限</option>
+                                <option value="5">五星级/豪华</option>
+                                <option value="4">四星级/高档</option>
+                                <option value="3">三星级/舒适</option>
+                                <option value="2">二星级以下/经济</option>
                             </select>
                             </div>
                             <div class="keyword">
-                                关键词 <input type="text" placeholder="海岛"/>
+                                关键词 <input type="text" id="key" placeholder="海岛"/>
                                 <div class="i_key">
                                     <a href="">温泉</a>、<a href="">亲子</a>、<a href="">自由行</a>、<a
                                         href="">名胜古迹</a>、<a href="">都市购物</a>
                                 </div>
 
                             </div>
-                            <button class="i_btn">搜索行程 ></button>
-                        </form>
-                    </div>
-                    <!--2-->
-                    <div class="discount">
-                        <form action="">
-                            <div class="i_destin">目的地 <input type="text" id="citySelect_five"
-                                                             placeholder="三亚"/>
-                            </div>
-                            <div class="i_live">
-                                入住时间 <input type="text" placeholder="2016.12待定" class="Wdate"
-                                            onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
-                                退房时间 <input type="text" class="Wdate" placeholder="2016.20待定"
-                                            onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
-                            </div>
-                            <div class="i_rank">
-                                每间住客数 <select name="">
-                                <option value="1"> 1成人</option>
-                                <option value="2" selected="selected"> 2成人</option>
-                                <option value="3"> 3成人</option>
-                                <option value="4"> 4成人</option>
-                                <option value="5"> 5成人</option>
-                                <option value="6"> 6成人</option>
-                                <option value="7"> 7成人</option>
-                                <option value="8"> 8成人</option>
-                            </select>
-                            </div>
-                            <div class="keyword">
-                                关键词 <input type="text" placeholder="海岛"/>
-                            </div>
-                            <button class="i_btn i_btn_hai">搜索行程 ></button>
-                        </form>
-                    </div>
-                    <!--3-->
-                    <div class="discount">
-                        <form action="">
-                            <div class="i-city">
-                                <p>
-                                    <span>热门城市:</span>
-                                    <a href="#">上海</a>
-                                    <a href="#">广州</a>
-                                    <a href="#">深圳</a>
-                                    <a href="#">北京</a>
-                                    <a href="#">成都</a>
-                                    <a href="#">杭州</a>
-                                    <a href="#">苏州</a>
-                                    <a href="#">青岛</a>
-                                </p>
-                                <p>
-                                    <span>热门团购:</span>
-                                    <a href="#">度假公寓</a>
-                                    <a href="#">别墅轰趴</a>
-                                    <a href="#">住店游玩</a>
-                                    <a href="#">情侣酒店</a>
-                                    <a href="#">火车票专享</a>
-                                </p>
-                            </div>
-                            <div class="keyword">
-                                关键词 <input type="text" placeholder="(选填)商圈/景区/酒店品牌/酒店名称/关键字"/>
-                            </div>
-                            <div class="keyword">
-                                目的地 <input type="text"/>
-                            </div>
-                            <button class="i_btn">搜索行程 ></button>
+                            <button class="i_btn" id="i_btn_list">搜索行程 ></button>
                         </form>
                     </div>
                 </div>
