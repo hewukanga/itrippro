@@ -17,7 +17,7 @@ public class LoginController {
     @Autowired
     private mailService mailService;
 
-    @RequestMapping("a")
+    @RequestMapping("index")
     public String index(){
         return "index.html";
     }
