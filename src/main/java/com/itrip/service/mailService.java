@@ -62,7 +62,7 @@ public class mailService {
         user.setUserpassword(password);
         user.setCode(code);
         user.setUsername(usercode);
-        return iudao.insert(user);
+        return iudao.insert(user)>0?true:false;
     }
 
     public boolean addPhoneUser(String phone,String password,Integer code){
@@ -71,6 +71,6 @@ public class mailService {
         user.setUserpassword(password);
         user.setCode(code);
         user.setUsername(phone);
-        return iudao.insert(user);
+        return iudao.insert(user)>0?true:false;
     }
 }

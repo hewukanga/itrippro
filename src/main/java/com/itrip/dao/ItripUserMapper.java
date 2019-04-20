@@ -6,7 +6,7 @@ import java.util.List;
 public interface ItripUserMapper {
     int deleteByPrimaryKey(Long id);
 
-    boolean insert(ItripUser record);
+    int insert(ItripUser record);
 
     ItripUser selectByPrimaryKey(Long id);
 
