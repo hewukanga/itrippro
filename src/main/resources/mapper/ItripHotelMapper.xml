@@ -22,7 +22,28 @@
     <result column="details" jdbcType="LONGVARCHAR" property="details" />
     <result column="facilities" jdbcType="LONGVARCHAR" property="facilities" />
     <result column="hotelPolicy" jdbcType="LONGVARCHAR" property="hotelpolicy" />
+
+    <association property="itripAreaDic"/>
+    <association property="itripHotelRoom"/>
   </resultMap>
+
+  <select id="selectBy" resultMap="BaseResultMap">
+    SELECT * FROM `itrip_hotel` eh,`itrip_area_dic` iad,`itrip_hotel_room` ihm
+    WHERE eh.`cityId`=iad.`id`
+    AND eh.`id`=ihm.`hotelId`
+    and ihm.isBook=1
+    <if test="name!=null and name!=''">
+      and iad.name like concat('%',#{name},'%')
+    </if>
+    <if test="hotellevel!=0">
+      and eh.hotelLevel=#{hotellevel}
+    </if>
+    <if test="details!=null and content!=''">
+      and eh.details like concat('%',#{details},'%')
+    </if>
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_hotel
     where id = #{id,jdbcType=BIGINT}

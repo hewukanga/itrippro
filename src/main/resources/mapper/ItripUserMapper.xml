@@ -17,7 +17,7 @@
     <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
     <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
     <result column="activated" jdbcType="INTEGER" property="activated" />
-    <result column="Code" jdbcType="INTEGER" property="code" />
+    <result column="code" jdbcType="INTEGER" property="code" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_user
@@ -29,7 +29,7 @@
       weChat, QQ, weibo, 
       baidu, creationDate, createdBy, 
       modifyDate, modifiedBy, activated, 
-      Code)
+      code)
     values (#{id,jdbcType=BIGINT}, #{usercode,jdbcType=VARCHAR}, #{userpassword,jdbcType=VARCHAR}, 
       #{usertype,jdbcType=INTEGER}, #{flatid,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, 
       #{wechat,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{weibo,jdbcType=VARCHAR}, 
@@ -53,18 +53,18 @@
       modifyDate = #{modifydate,jdbcType=TIMESTAMP},
       modifiedBy = #{modifiedby,jdbcType=BIGINT},
       activated = #{activated,jdbcType=INTEGER},
-      Code = #{code,jdbcType=INTEGER}
+      code = #{code,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select id, userCode, userPassword, userType, flatID, userName, weChat, QQ, weibo, 
-    baidu, creationDate, createdBy, modifyDate, modifiedBy, activated, Code
+    baidu, creationDate, createdBy, modifyDate, modifiedBy, activated, code
     from itrip_user
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select id, userCode, userPassword, userType, flatID, userName, weChat, QQ, weibo, 
-    baidu, creationDate, createdBy, modifyDate, modifiedBy, activated, Code
+    baidu, creationDate, createdBy, modifyDate, modifiedBy, activated, code
     from itrip_user
   </select>
 </mapper>

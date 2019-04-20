@@ -13,4 +13,5 @@ public interface ItripHotelMapper {
     List<ItripHotel> selectAll();
 
     int updateByPrimaryKey(ItripHotel record);
+    List<ItripHotel> selectBy(String name,int hotellevel,String details);
 }
