@@ -8,6 +8,7 @@ public class a {
         System.out.println("aaa");
         System.out.println("aaa");
         System.out.println("aaa");
+        System.out.println("我是你爹");
     }
 
 }
