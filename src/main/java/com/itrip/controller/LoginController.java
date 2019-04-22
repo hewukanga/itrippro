@@ -30,7 +30,7 @@ public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(RandomValidateCodeUtil.class);
     @RequestMapping("index")
     public String index(){
-        return "index.html";
+        return "index";
     }
 
     @RequestMapping("getCheckCode")
@@ -53,7 +53,7 @@ public class LoginController {
     @RequestMapping("duanxin")//点击获取验证码 跳到这里来
     @ResponseBody
     public String duanxin(String phone){
-        String code = String.valueOf(new Random().nextInt(899999) + 100000);
+        String code = String.valueOf(new Random().nextInt(899999) + 100000);//生成手机验证码
         String host = "http://dingxin.market.alicloudapi.com";
         String path = "/dx/sendSms";
         String method = "POST";
@@ -141,7 +141,7 @@ public class LoginController {
         if(user!=null){
             return "redirect:index";
         }else{
-            return "login.html";
+            return "login";
         }
     }
 }

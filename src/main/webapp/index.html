@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title>i 旅行 首页</title>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="lib/star-rating/star-rating.css">
-	<link rel="stylesheet" href="css/cityselect.css">
-	<link rel="stylesheet" href="css/reset.css">
-	<link rel="stylesheet" href="css/common.css">
-	<link rel="stylesheet" href="css/index.css">
-
-
-
+	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/lib/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/lib/star-rating/star-rating.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/cityselect.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 </head>
 <body>
 <!-- 头部开始 -->
@@ -60,10 +57,14 @@
 				<!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
 				<li><a href="strategy/index.html"><i class="icon-book"></i>攻略</a></li>
 			</ul>
-			<div class="i-nav-login">
+
+			<div class="i-nav-login" id="dl">
 				<a href="login.html">登录</a>
 				<span>|</span>
 				<a href="register.html">注册</a>
+			</div>
+			<div class="i-nav-login" id="dlh">
+				欢迎光临:${user.usercode}
 			</div>
 		</div>
 	</div>
@@ -108,7 +109,7 @@
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								酒店级别  <select name="" id="">
+	   								酒店级别  <select name="">
 		   									 	<option selected="selected" value="0">不限</option>
 												<option value="5">五星级/豪华</option>
 												<option value="4">四星级/高档</option>
@@ -135,7 +136,7 @@
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								酒店级别  <select name="" id="">
+	   								酒店级别  <select name="">
 	   									 	<option selected="selected">不限</option>
 											<option>五星级/豪华</option>
 											<option>四星级/高档</option>
@@ -161,7 +162,7 @@
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								酒店级别  <select name="" id="">
+	   								酒店级别  <select name="">
 	   									 	<option selected="selected">不限</option>
 											<option>五星级/豪华</option>
 											<option>四星级/高档</option>
@@ -199,7 +200,7 @@
 	   									退房时间  <input type="text" class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								酒店级别  <select name="" id="">
+	   								酒店级别  <select name="">
 	   										<option selected="selected">不限</option>
 											<option>五星级/豪华</option>
 											<option>四星级/高档</option>
@@ -220,13 +221,13 @@
 	   						<!--2-->
 	   						<div class="discount">
 	   							<form action="">
-	   								<div class="i_destin">目的地  <input type="text" id="citySelect_five" placeholder="三亚" /></div>
+	   								<div class="i_destin">目的地  <input type="text" id="citySelect_fi" placeholder="三亚" /></div>
 	   								<div class="i_live">
 	   									入住时间  <input type="text" placeholder="2016.12待定" />
 	   									退房时间  <input type="text" />
 	   								</div>
 	   								<div class="i_rank">
-	   								每间住客数  <select name="" id="">
+	   								每间住客数  <select name="">
 	   									 	<option value="1"> 1成人 </option>
 											<option value="2" selected="selected"> 2成人 </option>
 											<option value="3"> 3成人 </option>
@@ -337,7 +338,7 @@
 	   									退房时间  <input type="text"  class="Wdate" onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd'})"/>
 	   								</div>
 	   								<div class="i_rank">
-	   								每间住客数  <select name="" id="">
+	   								每间住客数  <select name="">
 	   									 	<option value="1"> 1成人 </option>
 											<option value="2" selected="selected"> 2成人 </option>
 											<option value="3"> 3成人 </option>
@@ -435,7 +436,7 @@
 	   									关键词 <input type="text" placeholder="(选填)商圈/景区/酒店品牌/酒店名称/关键字" />
 	   								</div>
 	   								<div class="keyword">
-	   									目的地 <input type="text" id="citySelect_six" />
+	   									目的地 <input type="text" id="citySelect_si" />
 	   								</div>
 	   								<button class="i_btn">搜索行程 ></button>
 	   							</form>
@@ -494,7 +495,7 @@
 	   									关键词 <input type="text" placeholder="(选填)商圈/景区/酒店品牌/酒店名称/关键字" />
 	   								</div>
 	   								<div class="keyword">
-	   									目的地 <input type="text" id="citySelect_six" />
+	   									目的地 <input type="text" id="citySelect_s" />
 	   								</div>
 	   								<button class="i_btn">搜索行程 ></button>
 	   							</form>
@@ -2755,7 +2756,7 @@
 								<a href="travel/travel_message.html"> 
 								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl01_0314.jpg" height="173" width="279" alt=""></a>
 							</div>
-							<h4>稻城亚丁</h4><input id="input-21f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+							<h4>稻城亚丁</h4><input id="input-22f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">1032人去过  987人想去</span>
 						</li>
 						<li>
@@ -2765,7 +2766,7 @@
 									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl02_0314.jpg" height="173" width="279" alt="">
 								</a>
 							</div>
-							<h4>九寨沟</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+							<h4>九寨沟</h4><input id="input-23f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">562人去过  876想去</span>		
 						</li>
 						<li>
@@ -2775,7 +2776,7 @@
 									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl03_0314.jpg" height="173" width="279" alt="">
 								</a>
 							</div>
-							<h4>青海湖</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+							<h4>青海湖</h4><input id="input-24f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">721人去过  560人想去</span>
 						</li>
 						<li>
@@ -2785,7 +2786,7 @@
 									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl04_0314.jpg" height="173" width="279" alt="">
 								</a>
 							</div>
-							<h4>乌镇</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+							<h4>乌镇</h4><input id="input-25f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">902人去过  683人想去</span>
 						</li>
 						<li>
@@ -2795,7 +2796,7 @@
 								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl05_0314.jpg" height="173" width="279" alt="">
 							</a>
 						</div>
-						<h4>婺源</h4><input id="input-21f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+						<h4>婺源</h4><input id="input-26f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">896人去过  596人想去</span>	
 						</li>
 						<li>
@@ -2805,7 +2806,7 @@
 								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl06_0314.jpg" height="173" width="279" alt="">
 							</a>
 						</div>
-							<h4>香格里拉</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+							<h4>香格里拉</h4><input id="input-27f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">632人去过  803人想去</span>
 						</li>
 					</ul>
@@ -2878,37 +2879,37 @@
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-28f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-29f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-30f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-31f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-32f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-33f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 					</ul>
@@ -2982,37 +2983,37 @@
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-34f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-35f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-36f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-37f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-38f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 						<li>
 							<a href="#"> 
 								<img src="images/img/idea279173_xxx1201.jpg" height="173" width="279" alt=""></a>
-									<h4>西双版纳</h4><input id="input-21f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
+									<h4>西双版纳</h4><input id="input-39f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 									<span class="item-count">560人去过  934人想去</span>
 						</li>
 					</ul>
