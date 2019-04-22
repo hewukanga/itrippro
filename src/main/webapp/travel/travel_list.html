@@ -14,11 +14,7 @@
     <link rel="stylesheet" th:href="@{/css/travel.css}"/>
     <script th:src="@{/lib/jquery-2.1.4.min.js}" type="text/javascript"></script>
     <script th:src="@{/lib/bootstrap/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/common.js}"></script>
     <script th:src="@{/lib/cityselect/cityselect.js}" type="text/javascript"></script>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
     <script th:src="@{/lib/html5shiv.min.js}"></script>
     <script th:src="@{/lib/respond.min.js}"></script>
     <![endif]-->
@@ -69,9 +65,9 @@
             <li><a href="strategyindex"><i class="icon-book"></i>攻略</a></li>
         </ul>
         <div class="i-nav-login">
-            <a href="../login.html">登陆</a>
+            <a href="login">登陆</a>
             <span>|</span>
-            <a href="../register.html">注册</a>
+            <a href="register">注册</a>
         </div>
     </div>
 </div>
@@ -539,7 +535,7 @@
     </div>
 </div>
 <!-- footer结束 -->
-<script th:src="@{/travel_list.js}" type="text/javascript"></script>
+<script src="travel_list.js" type="text/javascript"></script>
 <script>
     var style = "  <style> .travel-search .search input[type='text']{ height: 43px !important;  } input[type='checkbox']{ top: -9px !important;  }</style>";
     var isIE = !!window.ActiveXObject;
@@ -550,5 +546,6 @@
         travelList.init()
     }
 </script>
+<script src="js/common.js"></script>
 </body>
 </html>

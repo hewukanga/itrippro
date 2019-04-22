@@ -4,19 +4,15 @@
 	<meta charset="UTF-8">
 	<title>机票</title>
 	<link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}">
-	<link rel="stylesheet" th:href="@{css/cityselect.css}">
-	<link rel="stylesheet" th:href="@{css/font-awesome.min.css}">
-	<link rel="stylesheet" th:href="@{css/reset.css}">
-	<link rel="stylesheet" th:href="@{css/common.css}">
-	<link rel="stylesheet" th:href="@{css/flyTicket.css}">
+	<link rel="stylesheet" th:href="@{/css/cityselect.css}">
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/common.css}">
+	<link rel="stylesheet" th:href="@{/css/flyTicket.css}">
 	<script th:src="@{/lib/jquery-1.11.1.min.js}"></script>
 	<script th:src="@{/lib/cityselect.js}"></script>
 	<script th:src="@{/lib/echarts.min.js}"></script>
 	<script th:src="@{/lib/My97DatePicker/WdatePicker.js}"></script>
-
-	<script th:src="@{/js/common.js}"></script>
-	<script th:src="@{/js/flyTicket.js}"></script>
-
 </head>
 <body>
 
@@ -65,9 +61,9 @@
 				<li><a href="strategyindex"><i class="icon-book"></i>攻略</a></li>
 			</ul>
 			<div class="i-nav-login">
-				<a href="login.html">登陆</a>
+				<a href="login">登陆</a>
 				<span>|</span>
-				<a href="register.html">注册</a>
+				<a href="register">注册</a>
 			</div>
 		</div>
 	</div>
@@ -1016,9 +1012,8 @@
 	</div>
 </div>
 <!-- footer结束 -->
-
-
-	
+<script src="js/common.js"></script>
+<script src="js/flyTicket.js"></script>
 </body>
 </html>
 
