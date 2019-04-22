@@ -1,11 +1,11 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset='utf-8'>
     <title>demo</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../lib/calendar/calendar.css"/>
-    <script src="../lib/calendar/calendar.js" type="text/javascript"></script>
+    <link rel="stylesheet" th:href="@{css/font-awesome.min.css}"/>
+    <link rel="stylesheet" th:href="@{lib/calendar/calendar.css}"/>
+    <script th:src="@{lib/calendar/calendar.js}" type="text/javascript"></script>
 </head>
 <body>
 <div class='calendar' id='calendar'  style="margin: auto; width: 640px; height: 450px;"></div>
