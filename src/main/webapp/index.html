@@ -3,14 +3,22 @@
 <head>
 	<meta charset="UTF-8">
 	<title>i 旅行 首页</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/lib/bootstrap/css/bootstrap.min.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/lib/star-rating/star-rating.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/cityselect.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
-	<link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+	<link rel="shortcut icon" th:href="@{favicon.ico}" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" th:href="@{css/font-awesome.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{lib/bootstrap/css/bootstrap.min.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{lib/star-rating/star-rating.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/cityselect.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/reset.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/common.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/index.css}">
+	<script th:src="@{lib/jquery-1.11.1.min.js}"></script>
+	<script th:src="@{lib/cityselect.js}"></script>
+	<script th:src="@{lib/My97DatePicker/WdatePicker.js}"></script>
+	<script th:src="@{lib/star-rating/star-rating.js}"></script>
+	<script th:src="@{lib/jquery.lazyload.js}"></script>
+
+	<script th:src="@{js/common.js}"></script>
+	<script th:src="@{js}"></script>
 </head>
 <body>
 <!-- 头部开始 -->
@@ -50,12 +58,12 @@
 	<div class="i-nav clearfix">
 		<div class="i-nav-wrap">
 			<ul>
-				<li class="current"><a href="index.html" ><i class="icon-home"></i>首页</a></li>
-				<li><a href="travel/index.html"><i class="icon-globe"></i>旅游</a></li>
-				<li><a href="tavern/index.html"><i class="icon-hospital"></i>酒店</a></li>
-				<li><a href="flyTicket.html"><i class="icon-plane"></i>机票</a></li>
+				<li class="current"><a href="index" ><i class="icon-home"></i>首页</a></li>
+				<li><a href="travelindex"><i class="icon-globe"></i>旅游</a></li>
+				<li><a href="tavernindex"><i class="icon-hospital"></i>酒店</a></li>
+				<li><a href="flyticket"><i class="icon-plane"></i>机票</a></li>
 				<!-- <li><a href="#"><i class="icon-credit-card"></i>门票</a></li> -->
-				<li><a href="strategy/index.html"><i class="icon-book"></i>攻略</a></li>
+				<li><a href="strategyindex"><i class="icon-book"></i>攻略</a></li>
 			</ul>
 
 			<div class="i-nav-login" id="dl">
@@ -3460,13 +3468,6 @@
 </body>
 </html>
 
-<script src="lib/jquery-1.11.1.min.js"></script>
-<script src="lib/cityselect.js"></script>
-<script src="lib/My97DatePicker/WdatePicker.js"></script>
-<script src="lib/star-rating/star-rating.js"></script>
-<script src="lib/jquery.lazyload.js"></script>
 
-<script src="js/common.js"></script>
-<script src="js"></script>
 
 

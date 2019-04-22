@@ -28,10 +28,7 @@ public class LoginController {
     @Autowired
     private loginService loginservice;
     private static final Logger logger = LoggerFactory.getLogger(RandomValidateCodeUtil.class);
-    @RequestMapping("index")
-    public String index(){
-        return "index";
-    }
+
 
     @RequestMapping("getCheckCode")
     @ResponseBody
