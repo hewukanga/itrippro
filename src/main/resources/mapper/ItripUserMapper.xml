@@ -19,6 +19,9 @@
     <result column="activated" jdbcType="INTEGER" property="activated" />
     <result column="code" jdbcType="INTEGER" property="code" />
   </resultMap>
+  <select id="loginuser" parameterType="com.itrip.model.ItripUser" resultMap="BaseResultMap">
+    select * from itrip_user where userCode=#{usercode} and userPassword=#{userpassword}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_user
     where id = #{id,jdbcType=BIGINT}

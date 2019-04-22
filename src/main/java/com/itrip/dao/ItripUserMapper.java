@@ -13,4 +13,6 @@ public interface ItripUserMapper {
     List<ItripUser> selectAll();
 
     int updateByPrimaryKey(ItripUser record);
+
+    ItripUser loginuser(ItripUser user);
 }

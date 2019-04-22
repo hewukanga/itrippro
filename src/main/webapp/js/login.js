@@ -9,7 +9,7 @@ $("#login").on("click",function (e) {
     var password=jbit.util.validator.account;
     var name=$("#username").val();
     var pd=$("#password").val();
-    var lc=$("#loginCode").val();
+    var lc = $("#verify_input").val();
     var flage=true;
     function showErrorMess(ms) {
         flage=false;
@@ -35,26 +35,26 @@ $("#login").on("click",function (e) {
     }
     var isLc=false;
     $("#selectShowType input[type=radio]").each(function (i, item) {
-       if(this.checked){
+       if(this.checked){//当选择的是第一个的时候  islc就等于true
            if(this.value==1){
-               isLc=true;
+               isLc=true
            }
        }
     });
     if(isLc){
         if(lc==""||lc==null){
-            showErrorMess("验证码不能为空！");
+            showErrorMess("请输入验证码");
             return;
         }
-        if(!password(lc).code){
-            showErrorMess("请输入正确的验证码");
-            return;
+        if(flage){//当我点击登陆的时候进行判断  当判断条件全部不成立的时候flag才是true才可以走到这里面  当我输入的东西全部是正确的时候 才可以进行登录
+            showMessage.hide();
+            if(verify) {
+                alert(flage)
+                var name = $("#username").val();
+                var pwd = $("#password").val();
+                window.location.href="/itrip/loginUser?name="+name+"&pwd="+pwd;
+            }
         }
-    }
-
-    if(flage){
-        showMessage.hide();
-        window.location="../../../webapp/index.html"
     }
 })
 $("#selectShowType input[type=radio]").on("change",function (e) {
