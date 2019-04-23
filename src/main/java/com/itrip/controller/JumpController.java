@@ -13,19 +13,19 @@ public class JumpController {
 
     @RequestMapping("/tavernindex")
     public String taverindex(){
-        return "tavern/index";
+        return "tavernindex";
     }
 
 
     @RequestMapping("/travelindex")
     public String travelindex(){
-        return "travel/index";
+        return "travelindex";
     }
 
 
     @RequestMapping("/strategyindex")
     public String strategyindex(){
-        return "strategy/index";
+        return "strategyindex";
     }
 
     @RequestMapping("/flyticket")

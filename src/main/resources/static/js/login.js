@@ -11,6 +11,7 @@ $("#login").on("click",function (e) {
     var pd=$("#password").val();
     var lc = $("#verify_input").val();
     var flage=true;
+    alert("aaa")
     function showErrorMess(ms) {
         flage=false;
         showTips.html(ms);

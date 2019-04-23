@@ -6,7 +6,6 @@
 */
 'use strict';
 // tab切换
-
 $( '.i-reg-top label' ).click( function(event){
 		event.stopPropagation(); 
 		var index = $( this ).index();
@@ -95,6 +94,7 @@ $('.idCode').click(function ( ){
 
 // 手机注册
 $('.submitOne').click(function(){
+    alert("aaa")
     var inputyanzm = $("#inputyanzm").val().toLowerCase();//自己输入的yanzm转换为小写
     var jihuoma = $("#jihuoma").val();//激活码 手机激活码
     var phone = $("#phone").val();
@@ -121,7 +121,7 @@ $('.submitOne').click(function(){
                 success: function (data) {
                     if (data) {
                         layer.alert("注册成功", function () {
-                            window.location.href = "index.html";
+                            window.location.href = "index";
                         });
                     } else {
                         layer.alert("注册失败");
@@ -142,6 +142,7 @@ $('.submitOne').click(function(){
 });
 //邮箱注册
 $('.submitTwo').click(function(){
+    alert("aaaa")
     var inputCheckCode = $("#code").val();//得到自己输入的激活码
     var mail = $("#mail").val();//得到输入的邮箱
     var password = $("#password").val();
@@ -170,7 +171,7 @@ $('.submitTwo').click(function(){
                 success: function (data) {
                     if (data) {
                         layer.alert("注册成功", function () {
-                            window.location.href = "index.html";
+                            window.location.href = "index";
                         });
                     } else {
                         layer.alert("注册失败");

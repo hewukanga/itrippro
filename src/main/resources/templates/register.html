@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>i旅行-注册页</title>
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/favicon.ico}">
-    <link rel="stylesheet" th:href="@{/css/reset.css}">
-    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
-    <link rel="stylesheet" th:href="@{/css/common.css}">
-    <link rel="stylesheet" th:href="@{/css/register.css}"/>
+	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+	<link rel="stylesheet" th:href="@{/css/common.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/register.css}"/>
+	<link rel="stylesheet" type="text/css" th:href="@{/layui-v2.4.5/layui/css/layui.css}">
+	<script th:src="@{/lib/jquery-1.11.1.min.js}"></script>
+	<script th:src="@{/lib/html5shiv.min.js}"></script>
+	<script th:src="@{/lib/respond.min.js}"></script>
 	<script th:src="@{/layer-v3.1.1/layer/layer.js}"></script>
-    <link rel="stylesheet" th:href="@{/layui-v2.4.5/layui/css/layui.css}">
-    <script th:src="@{/layui-v2.4.5/layui/layui.js}"></script>
+	<script th:src="@{/lib/bootstrap/js/bootstrap.min.js}"></script>
+</head>
 </head>
 <body>
  <div class="travel-login">
      <header class="clearfix">
          <img src="images/img/i-LOGO-02-01.png">
          <div class="login_toolbox">
-			<a class="login_username" href="login.html">登录</a>
+			<a class="login_username" href="login">登录</a>
 			|
 			<a class="login_kefu" href="#">客服中心</a>
 		</div>
@@ -120,8 +124,7 @@
      </footer>
  </div>
 <script>
-
-    //获取短信验证码
+	//获取短信验证码
     var dxyzm="";
     $("#duanxinyzm").click(function(){
         var phone = $("#phone").val();
@@ -173,7 +176,7 @@
                     layer.close(index);
                     layer.msg("已发送");
                     checkCode  = text;//赋值给checkCode  之后可以拿来和输入的激活码进行判断 因为这个肯定是正确的 是后台生成发给用户的激活码  到时候拿来和用户输入的激活进行判断正误
-                    countDown();
+					countDown();
                 } else {
                     layer.msg("获取失败，请重新获取");//判断  获取成功就走上面 获取失败就走下面
                 }
@@ -214,9 +217,8 @@
         }
     };
 </script>
+ <script src="js/common.js"></script>
+ <script src="js/register.js"></script>
 </body>
 </html>
-<script src="lib/jquery-1.11.1.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="js/common.js"></script>
-<script src="js/register.js"></script>
+
