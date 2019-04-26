@@ -22,7 +22,6 @@ var tavern = {
             });
         }
         sef.banner = function (e) {
-
 // 首页轮播图
             var num = 0;
             var timer = null;

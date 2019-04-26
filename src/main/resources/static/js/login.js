@@ -11,7 +11,6 @@ $("#login").on("click",function (e) {
     var pd=$("#password").val();
     var lc = $("#verify_input").val();
     var flage=true;
-    alert("aaa")
     function showErrorMess(ms) {
         flage=false;
         showTips.html(ms);
@@ -49,8 +48,7 @@ $("#login").on("click",function (e) {
         }
         if(flage){//当我点击登陆的时候进行判断  当判断条件全部不成立的时候flag才是true才可以走到这里面  当我输入的东西全部是正确的时候 才可以进行登录
             showMessage.hide();
-            if(verify) {
-                alert(flage)
+            if(verify) {//判断  当我验证码输入正确的时候才可以走这里  在那边会显示验证码错误  只要那边显示验证码错误 那边给verify的值就是false 只要是false就走不进这个里面  所以必须那边显示的是验证码正确  就会给verify一个true的值  这样 才可以走到这个if里面 进行登陆
                 var name = $("#username").val();
                 var pwd = $("#password").val();
                 window.location.href="/itrip/loginUser?name="+name+"&pwd="+pwd;
