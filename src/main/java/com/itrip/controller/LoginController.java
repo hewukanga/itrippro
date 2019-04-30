@@ -9,6 +9,7 @@ import org.mybatis.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.itrip.service.mailService;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -132,11 +133,11 @@ public class LoginController {
     }
 
     @RequestMapping("loginUser")
-    public String loginUser(String name,String pwd,HttpSession session){
+    public String loginUser(String name, String pwd, HttpSession session, Model model){
         ItripUser user =loginservice.loginUser(name,pwd);
-        session.setAttribute("user",user);
+        model.addAttribute("user",user.getUsercode());
         if(user!=null){
-            return "redirect:index";
+            return "index";
         }else{
             return "login";
         }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:fragment="static">
 	<meta charset="UTF-8">
 	<title>i 旅行 首页</title>
-	<link rel="shortcut icon" th:href="@{../../webapp/favicon.ico}" type="image/x-icon" />
+	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/lib/bootstrap/css/bootstrap.min.css}">
 	<link rel="stylesheet" type="text/css" th:href="@{/lib/star-rating/star-rating.css}">
@@ -63,13 +63,14 @@
 				<li><a href="strategyindex"><i class="icon-book"></i>攻略</a></li>
 			</ul>
 
-			<div class="i-nav-login" id="dl">
+			<div th:unless="${user}" class="i-nav-login" id="dl"><!--如果不存在user就走这里-->
 				<a href="login">登录</a>
 				<span>|</span>
 				<a href="register">注册</a>
 			</div>
-			<div class="i-nav-login" id="dlh">
-				欢迎光临:${user.usercode}
+			<div th:if="${user}" class="i-nav-login" id="dlh"><!--如果存在user就走这里-->
+                <span id="g" th:text="'Hello, ' + ${user}" style="color: white;width: 200px;height: 20px;"></span>&nbsp;&nbsp;
+				<a href="login" style="color: white;">退出登陆</a>
 			</div>
 		</div>
 	</div>
@@ -1109,7 +1110,7 @@
 					<ul class="i-sale-con clearfix">
 						<li>
 							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_01_xxx1213.jpg" height="174" width="279" alt="">
+								<img class="lazy" src="images/img/hotel279174_01_xxx1213.jpg" height="174" width="279" alt="">
 									<h4>【巴黎】卢浮宫凯悦酒店(Hotel Du Louvre, a Hyatt Hotel Paris)</h4>
 									<span class="i-price">
 										<em>¥</em>2908 <i class="i-price-info">起</i>
@@ -1119,7 +1120,7 @@
 						</li>
 						<li>
 							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_02_xxx1213.jpg" height="174" width="279" alt="">
+								<img class="lazy" src="images/img/hotel279174_02_xxx1213.jpg" height="174" width="279" alt="">
 									<h4>【东京】威斯汀酒店(The Westin Tokyo)</h4>
 									<span class="i-price">
 										<em>¥</em>2105<i class="i-price-info">起</i>
@@ -1129,7 +1130,7 @@
 						</li>
 						<li>
 							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_03_xxx1213.jpg" height="174" width="279" alt="">
+								<img class="lazy" src="images/img/hotel279174_03_xxx1213.jpg" height="174" width="279" alt="">
 									<h4>【吉隆坡】千禧大酒店(Grand Millennium Kuala Lumpur)</h4>
 									<span class="i-price">
 										<em>¥</em>459<i class="i-price-info">起</i>
@@ -1139,7 +1140,7 @@
 						</li>
 						<li>
 							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_04_xxx1213.jpg" height="174" width="279" alt="">
+								<img class="lazy" src="images/img/hotel279174_04_xxx1213.jpg" height="174" width="279" alt="">
 									<h4>【曼谷】索菲特曼谷素坤逸酒店(Sofitel Bangkok Sukhumvit)</h4>
 									<span class="i-price">
 										<em>¥</em>1213<i class="i-price-info">起</i>
@@ -1149,7 +1150,7 @@
 						</li>
 						<li>
 							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_05_xxx1213.jpg" height="174" width="279" alt="">
+								<img class="lazy" src="images/img/hotel279174_05_xxx1213.jpg" height="174" width="279" alt="">
 									<h4>【首尔】东大门天空花园帝宫店(Hotel Skypark Kingstown dongdaemun Seoul)</h4>
 									<span class="i-price">
 										<em>¥</em>889<i class="i-price-info">起</i>
@@ -1159,7 +1160,7 @@
 						</li>
 						<li>
 							<a href="hotelDetail.html"> 
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/hotel279174_06_xxx1213.jpg" height="174" width="279" alt="">
+								<img class="lazy" src="images/img/hotel279174_06_xxx1213.jpg" height="174" width="279" alt="">
 									<h4>【新加坡】文华东方酒店(Mandarin Oriental Singapore)</h4>
 									<span class="i-price">
 										<em>¥</em>1025<i class="i-price-info">起</i>
@@ -1169,7 +1170,7 @@
 						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img class="lazy" src="images/icon/lazyload278-518.gif" data-original="images/img/jiudian_t_278518_xxx1130.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img class="lazy" src="images/img/jiudian_t_278518_xxx1130.jpg" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 
@@ -1770,8 +1771,8 @@
 
 <!-- 酒店下方推广广告开始 -->
 <div class="i-push clearfix">
-	<div class="i-push-left"><a href="#"><img class="lazy" src="images/icon/lazyload281-171.gif" data-original="images/img/jd_bottom_xxx1130_11.jpg" height="171" width="281" alt=""></a></div>
-	<div class="i-push-right"><a href="#"><img class="lazy" src="images/icon/lazyload856-171.gif" data-original="images/img/jd_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
+	<div class="i-push-left"><a href="#"><img class="lazy" src="images/img/jd_bottom_xxx1130_11.jpg" height="171" width="281" alt=""></a></div>
+	<div class="i-push-right"><a href="#"><img class="lazy" src="images/img/jd_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
 </div>
 <!-- 酒店下方推广广告结束 -->
 
@@ -1959,7 +1960,7 @@
 						</li>
 					</ul>
 					<div class="i-sale-tg">
-						<a href="#"><img class="lazy" src="images/icon/lazyload278-518.gif" data-original="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
+						<a href="#"><img class="lazy" src="images/img/ticket278518-xxx1201.jpg" height="518" width="278" alt=""></a>
 					</div>
 				</div>
 
@@ -2759,7 +2760,7 @@
 							<div class="i-idea-tj">
 								<span></span>
 								<a href="travel_message.html">
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl01_0314.jpg" height="173" width="279" alt=""></a>
+								<img class="lazy" src="images/img/lygl01_0314.jpg" height="173" width="279" alt=""></a>
 							</div>
 							<h4>稻城亚丁</h4><input id="input-22f" value="3" class="rating" min=0 max=5 step=0.5 data-size="xs" >
 							<span class="item-count">1032人去过  987人想去</span>
@@ -2768,7 +2769,7 @@
 							<div class="i-idea-tj">
 							 	<span></span>
 							 	<a href="travel_message.html">
-									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl02_0314.jpg" height="173" width="279" alt="">
+									<img class="lazy" src="images/img/lygl02_0314.jpg" height="173" width="279" alt="">
 								</a>
 							</div>
 							<h4>九寨沟</h4><input id="input-23f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
@@ -2778,7 +2779,7 @@
 							<div class="i-idea-tj">
 								<span></span>
 								<a href="travel_message.html">
-									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl03_0314.jpg" height="173" width="279" alt="">
+									<img class="lazy" src="images/img/lygl03_0314.jpg" height="173" width="279" alt="">
 								</a>
 							</div>
 							<h4>青海湖</h4><input id="input-24f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
@@ -2788,7 +2789,7 @@
 							<div class="i-idea-tj">
 								<span></span>
 								<a href="travel_message.html">
-									<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl04_0314.jpg" height="173" width="279" alt="">
+									<img class="lazy" src="images/img/lygl04_0314.jpg" height="173" width="279" alt="">
 								</a>
 							</div>
 							<h4>乌镇</h4><input id="input-25f" value="2" class="rating" min=0 max=5 step=0.5 data-size="xs" >
@@ -2798,7 +2799,7 @@
 						<div class="i-idea-tj">
 							<span></span>
 							<a href="travel_message.html">
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl05_0314.jpg" height="173" width="279" alt="">
+								<img class="lazy" src="images/img/lygl05_0314.jpg" height="173" width="279" alt="">
 							</a>
 						</div>
 						<h4>婺源</h4><input id="input-26f" value="5" class="rating" min=0 max=5 step=0.5 data-size="xs" >
@@ -2808,7 +2809,7 @@
 						<div class="i-idea-tj">
 							<span></span>
 							<a href="travel_message.html">
-								<img class="lazy" src="images/icon/lazyload279-173.gif" data-original="images/img/lygl06_0314.jpg" height="173" width="279" alt="">
+								<img class="lazy" src="images/img/lygl06_0314.jpg" height="173" width="279" alt="">
 							</a>
 						</div>
 							<h4>香格里拉</h4><input id="input-27f" value="1" class="rating" min=0 max=5 step=0.5 data-size="xs" >
@@ -3062,8 +3063,8 @@
 
 <!-- 攻略下方推广广告开始 -->
 <div class="i-push clearfix">
-	<div class="i-push-left"><a href="#"><img class="lazy" src="images/icon/lazyload281-171.gif" data-original="images/img/gl_bottom_xxx1130_07.jpg" height="171" width="281" alt=""></a></div>
-	<div class="i-push-right"><a href="#"><img class="lazy" src="images/icon/lazyload856-171.gif" data-original="images/img/gl_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
+	<div class="i-push-left"><a href="#"><img class="lazy" src="images/img/gl_bottom_xxx1130_07.jpg" height="171" width="281" alt=""></a></div>
+	<div class="i-push-right"><a href="#"><img class="lazy" src="images/img/gl_bottom_xxx1130.jpg" height="171" width="856" alt=""></a></div>
 </div>
 <!-- 攻略下方推广广告结束 -->
 
@@ -3463,6 +3464,10 @@
 <!-- footer结束 -->
 <script src="js/index.js"></script>
 <script src="js/common.js"></script>
+<!--<script th:inline="javascript">-->
+	<!--var g = [[${user}]];-->
+	<!--alert(g);-->
+<!--</script>-->
 </body>
 </html>
 
