@@ -4,11 +4,11 @@ import com.itrip.model.ItripUser;
 import java.util.List;
 
 public interface ItripUserMapper {
-    int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(ItripUser record);
 
-    ItripUser selectByPrimaryKey(Long id);
+    ItripUser selectByPrimaryKey(Integer id);
 
     List<ItripUser> selectAll();
 

@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<link rel="stylesheet" th:href="@{css/style.css}" />
+    <link rel="stylesheet" th:href="@{/lib/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/bootstrap/css/bootstrap.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/lib/star-rating/star-rating.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/cityselect.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
+    <script th:src="@{/lib/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/lib/cityselect.js}"></script>
+    <script th:src="@{/lib/My97DatePicker/WdatePicker.js}"></script>
+    <script th:src="@{/lib/star-rating/star-rating.js}"></script>
+    <script th:src="@{/lib/jquery.lazyload.js}"></script>
+	<body>
+		<!--上方logo-->
+		<div class="container top">
+			<div class="col-md-6">
+				<div class="col-md-6">
+					<a href="../index.html"><img src="images/img/User/logo3.png"></a>
+				</div>
+				<div class="col-md-6 User">
+					<a href="#"><i class="glyphicon glyphicon-user"></i>个人中心</a>
+				</div>
+			</div>
+			<div class="col-md-offset-2 col-md-4">
+				<img src="images/img/User/phone_num_2.png" />
+			</div>
+		</div>
+		<!--中间导航-->
+		<div class="navs">
+
+		</div>
+		<!------------------中间主体部分，这个是最大的一个块，分为两个块，一个导航，一个主题内容-------------->
+		<div class="container">
+			<!--导航部分-->
+			<div class="left-nav col-md-3">
+				<div class="Head_portrait">
+				</div>
+				<p class="UserName" th:text="${session.user.username}">
+					<!--用户名-->
+				</p>
+				<div class="container" style="width: 200px;">
+					<ul style="width: 200px;">
+						<li style="width: 150px;">
+							<a href="#id2" data-toggle="tab">
+								<i class="glyphicon glyphicon-list-alt"></i> 我的订单
+							</a>
+						</li>
+						<li style="width: 150px;" v>
+							<a href="#id3" data-toggle="tab">
+								<i class="glyphicon glyphicon-text-background"></i> 我的点评
+							</a>
+						</li>
+						<li style="width: 150px;">
+							<a href="#id4" data-toggle="tab">
+								<i class="glyphicon glyphicon-user"></i> 个人中心
+							</a>
+						</li>
+						<li style="width: 150px;">
+							<a href="#id5" data-toggle="tab">
+								<i class="glyphicon glyphicon-cog"></i> 常旅客管理
+							</a>
+						</li>
+						<li style="width: 150px;">
+							<a href="#id6" data-toggle="tab">
+								<i class="glyphicon glyphicon-gift"></i> 我的优惠价
+							</a>
+						</li>
+						<li style="width: 150px;">
+							<a href="#id7" data-toggle="tab">
+								<i class="glyphicon glyphicon-piggy-bank "></i> 我的氪金
+							</a>
+						</li>
+						<li class="active" style="width: 150px;">
+							<a href="#id1" data-toggle="tab" style="color: #843534;">
+								<i class="glyphicon glyphicon-home"></i> 我的主页
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-------------------我的主页---------------------------->
+			<div class="tab-content" style="margin-top: -15px;">
+				<div class="tab-pane fade in active" id="id111">
+					<div class="col-md-9 main" id="id1">
+						<div class="Discount col-md-12">
+							<div class="money col-md-7" style="	margin-left:-15px;">
+								<div class="money-top col-md-12">
+									<h4 class="col-md-6 ">
+						<i class="glyphicon glyphicon-usd"></i>
+						奖金总金额
+					  </h4>
+						<a href="https://www.itrip.com/about/help#howGetAward" class="col-md-offset-1 col-md-5">
+					  	如何获得奖金？
+					  	<i class="glyphicon glyphicon-record"></i>
+					  </a>
+								</div>
+								<div class="rmb">
+									<ul>
+										<li>
+											我的总资产(RMB)<br/>
+											<span>2822.33</span>
+										</li>
+										<li>
+											可提现资产(RMB)<br/>
+											<span>2822.33</span>
+										</li>
+										<li>
+											代发资产(RMB)<br/>
+											<span>4500</span>
+										</li>
+
+									</ul>
+								</div>
+							</div>
+							<div class="left_Discount">
+								<p>
+									<span>我的优惠券</span>
+								</p>
+								<p class="notfind" style="border-bottom: none;">
+									未使用
+									<span>(&nbsp;&nbsp;
+								<a href="#">0</a>
+								&nbsp;&nbsp;)
+							</span>
+								</p>
+							</div>
+						</div>
+						<div class="Order col-md-12">
+							<ul>
+								<li>
+									<i class="glyphicon glyphicon-align-justify"></i>我的订单
+								</li>
+								<li>
+									全部订单
+									<a href="#id2" data-toggle="tab">0</a>
+								</li>
+								<li>
+									待付款订单
+									<a href="#id2" data-toggle="tab">0</a>
+								</li>
+								<li>
+									未出行订单
+									<a href="#id2" data-toggle="tab">0</a>
+								</li>
+								<li>
+									待评价订单
+									<a href="#id2" data-toggle="tab">0</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!----------------我的订单--------------------->
+				<div class="tab-pane fade" id="id2">
+                    <!--去掉class就不会隐藏了 通过id进行跳转  在点击的地方 写href=“#加上id的名字”  想跳那个id就写哪个id名字-->
+					<div class="join">
+						<ul class="nav nav-pills">
+							<li class="active"><a href="#order1" data-toggle="tab">
+									全部订单
+									<span>0</span>
+								</a></li>
+							<li><a href="#order2" data-toggle="tab">
+									待付款
+								<span>0</span>
+								</a></li>
+							<li><a href="#order3" data-toggle="tab">
+									未出行订单
+								<span>0</span>
+								</a></li>
+							<li><a href="#order4" data-toggle="tab">
+									待评价订单
+								<span>0</span>
+								</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="order1">
+								<!--订单里的全部订单-->
+								<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr class="danger">
+											<td>订单编号</td>
+											<td>订单类型</td>
+											<td>订单描述</td>
+											<td>订单价格</td>
+											<td>删除订单</td>
+											<td>付款</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>00318</td>
+											<td>机票</td>
+											<td>感谢马老C送的飞机</td>
+											<td>100</td>
+											<td>
+												<a href="#delete" class="btn btn-warning" data-toggle="modal">删除</a>
+											</td>
+											<td>
+												<a href="#money" class="btn btn-info" data-toggle="modal">付款</a>
+											</td>
+										</tr>
+							<div class="modal fade" id="money">
+								<div class="modal-dialog">
+									<div class="modal-content" style="width: 450px;">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">×</button>
+											<h4>扫码！！！！</h4>
+										</div>
+                                        <div class="media-body">
+                                            <p>
+                                                微信:
+                                                <img src="images/img/money/wx.jpg" style="height: 150px; width: 150px;" />
+                                            </p>
+                                            <p>
+                                                支付宝：
+                                                <img src="images/img/money/zfb.jpg" style="height: 150px; width: 150px;/>
+											</p>
+										</div>
+										<div class="modal-footer>
+                                                <input type="submit" class="btn btn-info btn-block" value="提交" />
+                                        </div>
+                                        </form>
+									</div>
+								</div>
+							</div>
+							     </tbody>
+								</table>
+							</div>
+                            <!--tab-pane fade的作用就是进行隐藏  当我调用的时候再显示出来-->
+							<div class="tab-pane fade " id="order2">
+								<!--订单里的待付款-->
+								<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr class="danger">
+											<td>订单编号</td>
+											<td>订单类型</td>
+											<td>订单描述</td>
+											<td>订单价格</td>
+											<td>操作</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>3648</td>
+											<td>机票</td>
+											<td>感谢喵喵喵送的火箭</td>
+											<td>500</td>
+											<td>
+												<a href="#delete" class="btn btn-warning" data-toggle="modal">删除</a>
+												<a href="#fk" class="btn btn-info"  data-toggle="modal">付款</a>
+											</td>
+										</tr>
+
+									</tbody>
+								</table>
+								<div class="modal fade" id="fk">
+								 <div class="modal-dialog">
+									<div class="modal-content" style="width: 450px;">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">×</button>
+											<h4>扫码！！！！</h4>
+										</div>
+										<div class="media-body">
+											<p>
+												微信:
+												<img src="images/img/money/wx.jpg" style="height: 150px; width: 150px;" />
+											</p>
+											<p>
+												支付宝：
+												<img src="images/img/money/zfb.jpg" style="height: 150px; width: 150px;/>
+											</p>
+										</div>
+										<div class="modal-footer>
+											<input type="submit" class="btn btn-info btn-block" value="提交" />
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							</div>
+							<div class="tab-pane fade " id="order3">
+								<!--订单里的未出行订单 -->
+								<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr class="danger">
+											<td>订单编号</td>
+											<td>订单类型</td>
+											<td>订单描述</td>
+											<td>订单价格</td>
+											<td>退款</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>339425</td>
+											<td>酒店</td>
+											<td>敲好的酒店</td>
+											<td>778</td>
+											<td><a href="#" class="btn btn-info">退款</a></td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+                            <!--这里的class必须要是tab_pane fade  这样就不会直接展示出来 这样最初始的状态就是隐藏  不会显示出来  去掉这个就会直接显示出来 -->
+							<div class="tab-pane fade " id="order4">
+								<!--订单里的未评价的订单那-->
+								<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr class="danger">
+											<td>订单编号</td>
+											<td>订单类型</td>
+											<td>订单描述</td>
+											<td>订单价格</td>
+											<td>操作</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>15655</td>
+											<td>飞机票</td>
+											<td>敲大的飞机</td>
+											<td>998</td>
+											<td>
+												<a href="#delete" class="btn btn-warning" data-toggle="modal">删除</a>
+												<a href="#" class="btn btn-info">评价</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-----------------------------我的点评------------------------------------------->
+				<div class="tab-pane fade " id="id3">
+					<div class="join">
+						<ul class="nav nav-pills">
+							<li class="active"><a href="#coms" data-toggle="tab">
+								评论
+								<span>0</span>
+							</a></li>
+						</ul>
+						<div class="tab-content">
+							<div class="tab-pane fade in active" id="coms">
+								<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr class="danger">
+											<td>订单编号</td>
+											<td>订单类型</td>
+											<td>订单描述</td>
+											<td>评论时间</td>
+											<td>删除评论</td>
+											<td>修改评论</td>
+											<td>查看评论类容</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>002274</td>
+											<td>机票</td>
+											<td>感谢老板送的飞机</td>
+											<td>2019-4-1</td>
+											<td>
+												<a href="#" class="btn btn-warning">删除</a>
+											</td>
+											<td>
+												<a href="#change_comment" class="btn btn-info" data-toggle="modal">修改</a>
+											</td>
+											<td>
+												1
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="modal fade" id="change_comment">
+									<div class="modal-dialog">
+										<div class="modal-content" style="width: 700px;">
+											<div class="modal-header">
+												<button class="close" data-dismiss="modal">×</button>
+												<h4>修改评论</h4>
+											</div>
+											<div class="media-body">
+												<form action="#" method="post" class="for">
+													评论:
+													<p> 
+														<textarea cols="90" rows="8" > </textarea>
+													</p>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<input type="submit" class="btn btn-info btn-block" value="提交" />
+											</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade " id="id4">
+					<div class="information join">
+						<div class="top_information">
+							<p>
+								基本信息
+								<a href="#" class="btn btn-info" data-toggle="modal" data-target="#mymoda">修改</a>
+							</p>
+							<ul>
+								<li>昵称: &nbsp;
+									<span>LucKyE</span>
+								</li>
+								<li>用户类型:&nbsp;
+									<span>root</span>
+								</li>
+								<li>平台iD:&nbsp;
+									<span>11332270</span>
+								</li>
+								<li>是否激活:&nbsp;
+									<span>未知</span>
+								</li>
+							</ul>
+							<!--点击修改的模态框-->
+							<div class="modal fade" id="mymoda">
+								<div class="modal-dialog">
+									<div class="modal-content" style="width: 700px;">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">×</button>
+											<h4>基本信息</h4>
+										</div>
+										<div class="media-body">
+											<form action="#" method="post" class="for">
+												<p style="margin-left: 105px;">
+													昵称：<input type="text" name="" />
+													<span class="ts">
+														（社区统一昵称，不可用于登录，可随时修改）
+													</span>
+												</p>
+												<p>
+													<span style="margin-left: -15px;">用户类型:</span>
+													<input type="text" name="" readonly="readonly" />
+												</p>
+												<p>
+													平台iD:
+													<input type="text" name="" readonly="readonly" />
+												</p>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<input type="submit" class="btn btn-info btn-block" value="提交" />
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<!--模态框结束-->
+						</div>
+						<div class="top_information _bto" style="z-index: 1;">
+							<p>
+								账号和密码
+								<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#email">修改</a>
+							</p>
+							<ul>
+								<li>手机: &nbsp;
+									<span>15697480619</span>
+								</li>
+								<li>邮箱:&nbsp;
+									<span>？？？@qq.com</span>
+								</li>
+								<li>账号密码:&nbsp;
+									<a href="#" class="btn btn-success" data-toggle="modal" data-target="#password">修改</a>
+								</li>
+								<!--修改密码的模态框-->
+								<div class="modal fade" id="password">
+									<div class="modal-dialog">
+										<div class="modal-content" style="width: 550px;">
+											<div class="modal-header">
+												<button class="close" data-dismiss="modal">×</button>
+												<h4>修改密码</h4>
+											</div>
+											<div class="media-body">
+												<form action="#" method="post">
+													<p>
+														新密码:&nbsp;&nbsp;&nbsp;
+														<input type="password" name="" />
+													</p>
+													<p>
+														确认密码:<input type="password" name="" />
+													</p>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<input type="submit" class="btn btn-info btn-block" value="提交" />
+											</div>
+											</form>
+										</div>
+									</div>
+								</div>
+								<!--修改手机和邮箱模态框-->
+								<div class="modal fade" id="email">
+									<div class="modal-dialog">
+										<div class="modal-content" style="width: 550px;">
+											<div class="modal-header">
+												<button class="close" data-dismiss="modal">×</button>
+												<h4>修改密码</h4>
+											</div>
+											<div class="media-body">
+												<form action="#" method="post">
+													<p>
+														手机:
+														<input type="text" name="" />
+													</p>
+													<p>
+														邮箱:
+														<input type="email" />
+													</p>
+												</form>
+											</div>
+											<div class="modal-footer">
+												<input type="submit" class="btn btn-info btn-block" value="提交" />
+											</div>
+											</form>
+										</div>
+									</div>
+								</div>
+								<li class="mar">社交账号情况:&nbsp;
+									<a href="#">关联QQ</a>
+									<a href="#">关联微信</a>
+									<a href="#">关联微博</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-----------------------------常用旅客管理-------------------------------------------->
+				<div class="tab-pane fade " id="id5">
+					<div class="join">
+						<div class="top_add">
+							<div class="top_nav">
+								<h4>
+									<i class="glyphicon glyphicon-user"></i>
+									<span>您的常用旅客</span>
+									<a href="#" class="btn btn-info" data-toggle="modal" data-target="#Passenger">添加旅客</a>
+								</h4>
+								<!--添加旅客的模态框-->
+								<div class="modal fade" id="Passenger">
+									<div class="modal-dialog">
+										<div class="modal-content" style="width: 550px;">
+											<div class="modal-header">
+												<button class="close" data-dismiss="modal">×</button>
+												<h4>添加旅客</h4>
+											</div>
+											<div class="media-body">
+												<div class="container">
+													<form action="#" method="post">
+														<p style="margin-left: 45px;">姓名:&nbsp;
+															<input type="text" name="" />
+														</p>
+														<p style="margin-left: 30px;">
+															证件号:&nbsp;
+															<input type="text" name="" />
+														</p>
+														<p>
+															常用人电话:&nbsp;
+															<input type="text" name="" />&nbsp;
+														</p>
+														<p style="margin-left:60px;">
+															iD:
+															<input type="text" name="" /> 证件类型:&nbsp;
+															<select>
+																<option>身份证</option>
+																<option>护照</option>
+																<option>学生证</option>
+																<option>军人证</option>
+																<option>驾驶证</option>
+																<option>旅行证</option>
+															</select>
+														</p>
+													</form>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<input type="submit" class="btn btn-info btn-block" value="提交" />
+											</div>
+											</form>
+										</div>
+									</div>
+								</div>
+								<div class="bot_tab" style="border-bottom: none;">
+									<table class="table table-striped table-hover table-condensed">
+										<thead>
+											<tr class="danger" align="center">
+												<td>姓名</td>
+												<td>证件号</td>
+												<td>常用联系号</td>
+												<td>操作</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr align="center">
+												<td>银河初代骑士</td>
+												<td>11223015</td>
+												<td>12345678910</td>
+												<td><a href="#" class="btn btn-info" data-toggle="modal" data-target="#change">修改</a>
+													<a href="#" class="btn btn-warning">删除</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<!----修改旅客------>
+									<div class="modal fade" id="change">
+										<div class="modal-dialog">
+											<div class="modal-content" style="width: 550px;">
+												<div class="modal-header">
+													<button class="close" data-dismiss="modal">×</button>
+													<h4>添加旅客</h4>
+												</div>
+												<div class="media-body">
+													<div class="container">
+														<form action="#" method="post">
+															<p style="margin-left: 45px;">姓名:&nbsp;
+																<input type="text" name="" />
+															</p>
+															<p style="margin-left: 30px;">
+																证件号:&nbsp;
+																<input type="text" name="" />
+															</p>
+															<p>
+																常用人电话:&nbsp;
+																<input type="text" name="" />&nbsp;
+															</p>
+															<p style="margin-left:60px;">
+																iD:
+																<input type="text" name="" /> 证件类型:&nbsp;
+																<select>
+																<option>身份证</option>
+																<option>护照</option>
+																<option>学生证</option>
+																<option>军人证</option>
+																<option>驾驶证</option>
+																<option>旅行证</option>
+															</select>
+															</p>
+														</form>
+													</div>
+												</div>
+												<div class="modal-footer">
+													<input type="submit" class="btn btn-info btn-block" value="提交" />
+												</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--------------------------优惠券---------------------------------->
+				<div  class="tab-pane fade " id="id6">
+					<div class="join">
+						<div class="Coupon">
+							<table class="table table-striped table-hover table-condensed">
+									<thead>
+										<tr class="danger">
+											<td>优惠券编号</td>
+											<td>优惠券类型</td>
+											<td>描述</td>
+											<td>操作</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>12664</td>
+											<td>酒店优惠券</td>
+											<td>满500减5元</td>
+											<td>
+												<a href="../flyTicket.html" class="btn btn-info">使用</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade " id="id7">
+					<div class="Krypton gold">
+						<h1>暂无此功能</h1>
+						 <h1>推荐转账</h1>
+						 <a href="#" class="btn btn-info" data-toggle="modal" data-target="#zz">点此转账</a>
+							<div class="modal fade" id="zz">
+								<div class="modal-dialog">
+									<div class="modal-content" style="width: 450px;">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">×</button>
+											<h4>扫码！！！！</h4>
+										</div>
+										<div class="media-body">
+											<p>
+												微信:
+												<img src="images/img/money/wx.jpg" style="height: 150px; width: 150px;" />
+											</p>
+											<p>
+												支付宝：
+												<img src="images/img/money/zfb.jpg" style="height: 150px; width: 150px;/>
+											</p>
+										</div>
+										<div class="modal-footer>
+											<input type="submit" class="btn btn-info btn-block" value="提交" />
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+							<div class="modal fade" id="delete">
+								<div class="modal-dialog">
+									<div class="modal-content" style="width: 450px;">
+										<div class="modal-header">
+											<button class="close" data-dismiss="modal">×</button>
+											<h4 style="color: red;">确定删除？？</h4>
+										</div>
+										<div class="media-body">
+											<a href="#" class="btn btn-block btn-warning">确定</a>
+											<a href="#" class="btn btn-block btn-success">取消</a>
+										</div>
+										<div class="modal-footer">
+										</div>
+										</form>
+									</div>
+								</div>
+							</div>
+	</body>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+
+</html>
+<!--
+	作者：好一个铁石心肠的坤
+	时间：2019-03-30
+	描述：爱旅游网的用户中心页面
+-->

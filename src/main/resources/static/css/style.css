@@ -1,0 +1,204 @@
+
+a:hover{
+	color: white;
+	text-decoration: none;
+}
+.top{
+	margin-top: 15px;
+}
+.User{
+	margin-top: 25px;
+}
+.navs{
+	width: 100%;
+	background-color: #00A0E9;
+	background-color: rgba(	30,144,255,0.7);
+	height: 45px;
+	padding-top: 10px;
+}
+.navs a{
+	color: white;
+	font-size: 18px;
+	margin-left: 14%;
+}
+.left-nav{
+	margin-top: 0px;
+	background-color: #BEEBEE;
+	height:490px;
+}
+
+li{
+	list-style: none;
+	line-height: 35px;
+}
+li a{
+	color: #9D9D9D;
+	font-size: 16px;
+}
+li a i{
+	margin-right: 5px;
+}
+.Head_portrait{
+	width: 90px;
+	height: 90px;
+	background: url(../images/img/User/defaultPortrait1.jpg);
+	border-radius:55px;
+	margin-top: 55px;
+	margin-left:75px;
+}
+.UserName{
+	color: #3A87AD;
+	margin-left: 90px;
+	margin-top: 10px;
+	font-size: 16px;
+}
+
+.main{
+	background-color: ghostwhite;
+	height: 490px ;
+}
+#id1{
+		padding-top: 15px;
+}
+.money{
+	background-color: white;
+	border: 5px solid lightgray;
+	border-radius: 5px;
+
+}
+.money a{
+	margin-top: 10px;
+}
+.money-top{
+	border-bottom: 2px solid #BFBFBF;
+}
+
+.rmb{
+	margin-top: 15PX;
+	width: 100%;
+	margin-left: -40px;
+}
+.rmb ul li{
+	float: left;
+	margin-right:29px ;
+	font-size: 13px;
+}
+.rmb span{
+	color: #B92C28;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.left_Discount{
+	width: 330px;
+	margin-left: 480px;
+	background-color: #129BCF;
+	border-radius: 3px;
+	color: white;
+	padding-top: 6px;
+}
+.left_Discount p{
+		margin-left: 15px;
+		font-size: 16px;
+		border-bottom: 2px dotted #BFBFBF;
+		padding-left: 15px;
+		width: 295px;
+}
+.notfind{
+	margin-top: 55px;	
+	padding-bottom: 20px;
+}
+.notfind span{
+	margin-left: 5px;
+}
+.notfind span a{
+	color: #985F0D;
+}
+.Order {
+	background-color: white;
+	border: 1px solid #DDDDDD;
+	border-radius: 3px;
+}
+.Order ul li{
+	float: left;
+	margin-right:65px;
+	font-size: 14px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.Order ul li a{
+	color: #C12E2A;
+	font-size: 18px;
+	margin-left: 5px;
+}
+
+.My_order ul li{
+	margin-right: 20px;
+}
+.My_order ul li a span{
+	color: #843534;
+}
+.My_order table{
+	margin-top: 25px;
+}
+.join{
+	height:490px;
+	width: 855px;
+	margin-top: 15px;
+	margin-left:285px;
+	background-color: ghostwhite;
+	padding-top: 15px;
+}
+.join ul{
+	margin-left: 25px;
+	height: 15%;
+	width: 800px;
+	border-bottom: 1px solid #DDDDDD;
+}
+.join table{
+	margin-top: 25px;
+}
+.top_information {
+	padding-bottom: 15px;
+}
+.top_information p {
+	margin-left: 100px;
+}
+
+.top_information ul{
+	padding-left: 150px;
+}
+
+.top_information ul li span{
+	color: #C7254E;
+}
+input{
+	border-radius: 5px;
+}
+.ts{
+	font-size: 12px;
+	color: #DDDDDD;
+}
+.for{
+	margin-top: 25px;
+}
+._bto{
+	margin-top: 25px;
+}
+.mar a{
+	margin-left: 25px;
+}
+.top_nav{
+	border-bottom: 1px solid #DDDDDD;
+	padding-bottom: 7PX;
+}
+.top_nav h4{
+	margin-left: 25px;
+}
+.top_nav h4 a{
+	margin-left: 550px;
+}
+textarea{
+	resize: none;
+	margin-left: 10px;
+}

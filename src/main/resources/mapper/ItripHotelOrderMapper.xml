@@ -101,4 +101,7 @@
     createdBy, modifyDate, modifiedBy, specialRequirement
     from itrip_hotel_order
   </select>
+  <select id="selectbyuid" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select * from itrip_hotel_order where userId =#{id}
+  </select>
 </mapper>

@@ -13,4 +13,6 @@ public interface ItripHotelOrderMapper {
     List<ItripHotelOrder> selectAll();
 
     int updateByPrimaryKey(ItripHotelOrder record);
+
+    List<ItripHotelOrder> selectbyuid(Long uid);
 }

@@ -135,7 +135,7 @@ public class LoginController {
     @RequestMapping("loginUser")
     public String loginUser(String name, String pwd, HttpSession session, Model model){
         ItripUser user =loginservice.loginUser(name,pwd);
-        model.addAttribute("user",user.getUsercode());
+        model.addAttribute("user",user);
         if(user!=null){
             return "index";
         }else{
