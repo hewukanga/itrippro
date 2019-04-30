@@ -22,6 +22,12 @@
     <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
     <result column="content" jdbcType="LONGVARCHAR" property="content" />
   </resultMap>
+
+  <select id="selectByHotel" resultMap="BaseResultMap">
+    SELECT * FROM `itrip_comment`
+WHERE `hotelId`=#{hotelid}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_comment
     where id = #{id,jdbcType=BIGINT}

@@ -13,4 +13,5 @@ public interface ItripCommentMapper {
     List<ItripComment> selectAll();
 
     int updateByPrimaryKey(ItripComment record);
+    List<ItripComment> selectByHotel(Long hotelid);
 }

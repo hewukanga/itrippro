@@ -22,25 +22,91 @@
     <result column="details" jdbcType="LONGVARCHAR" property="details" />
     <result column="facilities" jdbcType="LONGVARCHAR" property="facilities" />
     <result column="hotelPolicy" jdbcType="LONGVARCHAR" property="hotelpolicy" />
+    <result column="e_id" jdbcType="INTEGER" property="eId" />
 
-    <association property="itripAreaDic"/>
-    <association property="itripHotelRoom"/>
+    <association property="itripAreaDic" column="cityid" select="com.itrip.dao.ItripAreaDicMapper.selectByPrimaryKey"/>
+    <collection property="itripHotelRoom" ofType="com.itrip.model.ItripHotelRoom">
+      <id column="id" jdbcType="BIGINT" property="id" />
+      <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+      <result column="roomTitle" jdbcType="VARCHAR" property="roomtitle" />
+      <result column="roomPrice" jdbcType="DECIMAL" property="roomprice" />
+      <result column="roomBedTypeId" jdbcType="BIGINT" property="roombedtypeid" />
+      <result column="isHavingBreakfast" jdbcType="INTEGER" property="ishavingbreakfast" />
+      <result column="payType" jdbcType="INTEGER" property="paytype" />
+      <result column="satisfaction" jdbcType="DECIMAL" property="satisfaction" />
+      <result column="isBook" jdbcType="INTEGER" property="isbook" />
+      <result column="isCancel" jdbcType="INTEGER" property="iscancel" />
+      <result column="isTimelyResponse" jdbcType="INTEGER" property="istimelyresponse" />
+      <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+      <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+      <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+      <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+    </collection>
+    <collection property="itripComment" ofType="com.itrip.model.ItripComment">
+      <id column="id" jdbcType="BIGINT" property="id" />
+      <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+      <result column="productId" jdbcType="BIGINT" property="productid" />
+      <result column="orderId" jdbcType="BIGINT" property="orderid" />
+      <result column="productType" jdbcType="INTEGER" property="producttype" />
+      <result column="userId" jdbcType="BIGINT" property="userid" />
+      <result column="isHavingImg" jdbcType="INTEGER" property="ishavingimg" />
+      <result column="positionScore" jdbcType="INTEGER" property="positionscore" />
+      <result column="facilitiesScore" jdbcType="INTEGER" property="facilitiesscore" />
+      <result column="serviceScore" jdbcType="INTEGER" property="servicescore" />
+      <result column="hygieneScore" jdbcType="INTEGER" property="hygienescore" />
+      <result column="score" jdbcType="INTEGER" property="score" />
+      <result column="tripMode" jdbcType="BIGINT" property="tripmode" />
+      <result column="isOk" jdbcType="INTEGER" property="isok" />
+      <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+      <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+      <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+      <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+      <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    </collection>
+    <collection property="itripHotelFeatures" ofType="com.itrip.model.ItripHotelFeature">
+      <id column="id" jdbcType="BIGINT" property="id" />
+      <result column="hotelId" jdbcType="BIGINT" property="hotelid" />
+      <result column="featureId" jdbcType="BIGINT" property="featureid" />
+      <result column="creationDate" jdbcType="TIMESTAMP" property="creationdate" />
+      <result column="createdBy" jdbcType="BIGINT" property="createdby" />
+      <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
+      <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
+      <association property="itripLabelDic"/>
+    </collection>
   </resultMap>
 
+  <!--按条件查询酒店-->
   <select id="selectBy" resultMap="BaseResultMap">
-    SELECT * FROM `itrip_hotel` eh,`itrip_area_dic` iad,`itrip_hotel_room` ihm
-    WHERE eh.`cityId`=iad.`id`
-    AND eh.`id`=ihm.`hotelId`
-    and ihm.isBook=1
-    <if test="name!=null and name!=''">
-      and iad.name like concat('%',#{name},'%')
+    SELECT a.*,b.*,c.*,d.*
+    FROM `itrip_hotel`a ,`itrip_hotel_feature` b,`itrip_hotel_room` c,`itrip_comment` d,`itrip_area_dic` e
+    WHERE a.`id`=b.`hotelId`
+    AND a.`id`=d.`hotelId`
+    AND a.id=c.`hotelId`
+    AND a.`cityId`=e.`id`
+    <if test="name!='' and name!=null">
+      and e.name like concat('%',#{name},'%')
     </if>
     <if test="hotellevel!=0">
-      and eh.hotelLevel=#{hotellevel}
+      and a.hotelLevel=#{hotellevel}
     </if>
-    <if test="details!=null and content!=''">
-      and eh.details like concat('%',#{details},'%')
+    <if test="details!='' and details!=null">
+      and a.details like concat('%',#{details},'%')
     </if>
+  </select>
+
+  <select id="selectId" resultMap="BaseResultMap">
+    SELECT a.*,b.*,c.*,d.*
+    FROM `itrip_hotel`a ,`itrip_hotel_feature` b,`itrip_hotel_room` c,`itrip_comment` d
+    WHERE a.`id`=b.`hotelId`
+    AND a.`id`=d.`hotelId`
+    AND a.id=c.`hotelId`
+    AND a.`id`=#{id}
+  </select>
+
+  <select id="selectDetail" resultMap="BaseResultMap">
+    SELECT ih.*,ihr.* FROM `itrip_hotel` ih,`itrip_hotel_room` ihr
+    WHERE ih.`id`=ihr.`hotelId`
+    AND ih.`hotelName`=#{hotelname}
   </select>
 
 
@@ -56,7 +122,7 @@
       redundantCountryName, redundantHotelStore, 
       creationDate, createdBy, modifyDate, 
       modifiedBy, details, facilities, 
-      hotelPolicy)
+      hotelPolicy,e_id)
     values (#{id,jdbcType=BIGINT}, #{hotelname,jdbcType=VARCHAR}, #{countryid,jdbcType=BIGINT}, 
       #{provinceid,jdbcType=BIGINT}, #{cityid,jdbcType=BIGINT}, #{address,jdbcType=VARCHAR}, 
       #{hoteltype,jdbcType=INTEGER}, #{hotellevel,jdbcType=INTEGER}, #{isgrouppurchase,jdbcType=INTEGER}, 
@@ -64,7 +130,7 @@
       #{redundantcountryname,jdbcType=VARCHAR}, #{redundanthotelstore,jdbcType=INTEGER}, 
       #{creationdate,jdbcType=TIMESTAMP}, #{createdby,jdbcType=BIGINT}, #{modifydate,jdbcType=TIMESTAMP}, 
       #{modifiedby,jdbcType=BIGINT}, #{details,jdbcType=LONGVARCHAR}, #{facilities,jdbcType=LONGVARCHAR}, 
-      #{hotelpolicy,jdbcType=LONGVARCHAR})
+      #{hotelpolicy,jdbcType=LONGVARCHAR},#{e_id,jdbcType=INTEGER})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.itrip.model.ItripHotel">
     update itrip_hotel
@@ -87,13 +153,14 @@
       details = #{details,jdbcType=LONGVARCHAR},
       facilities = #{facilities,jdbcType=LONGVARCHAR},
       hotelPolicy = #{hotelpolicy,jdbcType=LONGVARCHAR}
+      e_id=#{e_id,jdbcType=INTEGER}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select id, hotelName, countryId, provinceId, cityId, address, hotelType, hotelLevel, 
     isGroupPurchase, redundantCityName, redundantProvinceName, redundantCountryName, 
     redundantHotelStore, creationDate, createdBy, modifyDate, modifiedBy, details, facilities, 
-    hotelPolicy
+    hotelPolicy,e_id
     from itrip_hotel
     where id = #{id,jdbcType=BIGINT}
   </select>
@@ -101,7 +168,7 @@
     select id, hotelName, countryId, provinceId, cityId, address, hotelType, hotelLevel, 
     isGroupPurchase, redundantCityName, redundantProvinceName, redundantCountryName, 
     redundantHotelStore, creationDate, createdBy, modifyDate, modifiedBy, details, facilities, 
-    hotelPolicy
+    hotelPolicy,e_id
     from itrip_hotel
   </select>
 </mapper>

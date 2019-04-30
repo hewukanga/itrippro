@@ -13,4 +13,6 @@ public interface ItripAreaDicMapper {
     List<ItripAreaDic> selectAll();
 
     int updateByPrimaryKey(ItripAreaDic record);
+    List<ItripAreaDic> selectHot();
+    List<ItripAreaDic> selectSea();
 }

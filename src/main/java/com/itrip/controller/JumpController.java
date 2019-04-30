@@ -11,10 +11,7 @@ public class JumpController {
         return "index";
     }
 
-    @RequestMapping("/tavernindex")
-    public String taverindex(){
-        return "tavernindex";
-    }
+
 
 
     @RequestMapping("/travelindex")
@@ -42,4 +39,6 @@ public class JumpController {
     public String register(){
         return "register";
     }
+
+
 }

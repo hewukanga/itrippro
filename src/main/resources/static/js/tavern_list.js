@@ -4,7 +4,7 @@
 var tavernList = {
     init: function (e) {
         var sef = this;
-        sef.tavernMessage = '../hotelDetail.html';
+        sef.tavernMessage = '/itrip/hotelDetail';
         var test = new Vcity.CitySelector({
             input: 'tavernCitySelect1'
         });

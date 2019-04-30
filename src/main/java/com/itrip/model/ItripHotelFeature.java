@@ -3,6 +3,16 @@ package com.itrip.model;
 import java.util.Date;
 
 public class ItripHotelFeature {
+    private ItripLabelDic itripLabelDic;
+
+    public ItripLabelDic getItripLabelDic() {
+        return itripLabelDic;
+    }
+
+    public void setItripLabelDic(ItripLabelDic itripLabelDic) {
+        this.itripLabelDic = itripLabelDic;
+    }
+
     private Long id;
 
     private Long hotelid;

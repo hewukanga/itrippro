@@ -82,10 +82,10 @@
         </div>
         <div class="model-body">
             <video id="videoMessage" class="video-js vjs-default-skin" controls preload="auto"
-                   width="960" height="580" src="images/video/travel/video1.mp4"
+                   width="960" height="580" th:src="@{/images/video/travel/video1.mp4}"
                    style="width: 960px;height: 580px;padding-left: 5px;">
                 <!--<source src="../images/video/travel/video.webm" type="video/webm">-->
-                <source src="images/video/travel/video1.mp4" type="video/mp4">
+                <source th:src="@{/images/video/travel/video1.mp4}" type="video/mp4">
             </video>
         </div>
     </div>
@@ -111,8 +111,8 @@
             </div>
         </div>
         <video class="video" autoplay="autoplay" preload="auto" loop="loop">
-            <source src="../images/video/travel/video.webm" type="video/webm">
-            <source src="images/video/travel/video.mp4" type="video/mp4">
+            <source th:src="@{/images/video/travel/video.webm}" type="video/webm">
+            <source th:src="@{/images/video/travel/video.mp4}" type="video/mp4">
         </video>
     </div>
 </div>
@@ -205,14 +205,14 @@
                                 </th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody th:each="room:${rooms}">
                             <tr class="first_room" expand="">
                                 <td id="first_room_01" data-clum="20" data-show="5" rowspan="5">
                                   <div class="room_img_ms">
                                       <a >
                                           <img src="images/img/hotelD01_0315.jpg" height="350" width="500"></a>
                                       <br>
-                                      <a> 豪华大床房 <br><span>查看详情</span></a>
+                                      <a th:text="${room.roomtitle}"><br><span>查看详情</span></a>
                                   </div>
                                     <div class="rom-show-image ">
                                         <div class="left-tran"></div>
@@ -230,84 +230,22 @@
                                 <td>
                                     <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
                                     <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-
                                 </td>
                                 <td>大床</td>
-                                <td>无早</td>
+                                <td  th:text="无早" th:if="${room.ishavingbreakfast==0}"></td>
+                                <td  th:text="有早" th:if="${room.ishavingbreakfast==1}"></td>
                                 <td><span>免费</span>
                                 </td>
-                                <td><span>不可取消</span></td>
+                                <td><span th:text="不可取消" th:if="${room.iscancel==0}"></span></td>
+                                <td><span th:text="可取消" th:if="${room.iscancel==1}"></span></td>
                                 <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
+                                    <span class="rom_unit_label" ><dfn>¥</dfn><em th:text="${room.roomprice}"></em><span>起</span></span>
                                 </td>
                                 <td class="col7">
                                     <button class="room_by">预定</button>
                                 </td>
                             </tr>
-                            <tr class="unexpanded">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded ">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
+                            <!--展开查看全部房型时显示-->
                             <tr class="unexpanded hidden">
                                 <td>
                                     <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
@@ -335,136 +273,6 @@
                                 <td class="room_detail_fold"><a data-id="first_room_01" data-hideData="1" data-status="0">展开全部房型 <i class=" icon-chevron-down"></i></a>
                                 </td>
                             </tr>
-
-                            <tr class="first_room" expand="">
-                                <td id="first_room_02" data-clum="20" data-show="5" rowspan="5">
-                                    <div class="room_img_ms">
-                                        <a >
-                                            <img src="images/img/hotelD04_0315.jpg" height="350" width="500"></a>
-                                        <br>
-                                        <a> 豪华大床房 <br><span>查看详情</span></a>
-                                    </div>
-                                    <div class="rom-show-image ">
-                                        <div class="left-tran"></div>
-                                        <a class="model-remove">
-                                            <i class=" icon-remove"></i>
-                                        </a>
-                                        <img class="big-img" src="images/img/hotelD04_0315.jpg" alt="">
-                                        <div class="small-img">
-                                            <img src="images/img/hotelD04_0315.jpg" alt="">
-                                            <img src="images/img/hotelD05_0315.jpg" alt="">
-                                            <img src="images/img/hotelD06_0315.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>无早</td>
-                                <td><span>免费</span>
-                                </td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded ">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded hidden">
-                                <td>
-                                    <span class="room_type_name">i旅行直营</span><span class="rom_type_label_1">代理</span>&nbsp;<span class="rom_type_label_2">礼</span>
-                                    <p class="book_percent"><span class="green">预订满意度 100%</span></p>
-                                </td>
-                                <td>大床</td>
-                                <td>单早</td>
-                                <td>免费</td>
-                                <td><span>不可取消</span></td>
-                                <td>
-                                    <span class="rom_unit_label" ><dfn>¥</dfn><em>2699</em><span>起</span></span>
-                                </td>
-                                <td class="col7">
-                                    <button class="room_by">预定</button>
-                                </td>
-                            </tr>
-                            <tr class="unexpanded last_room" overf="F">
-                                <td class="fold_bold_r"></td>
-                                <td class="child_name"></td>
-                                <td class="col3"></td>
-                                <td class="col4"></td>
-                                <td class="col5"></td>
-                                <td></td>
-                                <td class="col_policy"></td>
-                                <td class="room_detail_fold"><a data-id="first_room_02" data-hideData="1" data-status="0">展开全部房型 <i class=" icon-chevron-down"></i></a>
-                                </td>
-                            </tr>
-
                             </tbody>
                         </table>
 													
@@ -495,20 +303,9 @@
 											<li><span>【会议酒店】</span>这里是召开会议的理想场所，配备先进的会议设施，并可提供完善的会议服务。</li>
 										</ul>
 									</div>
-
-	
-	
-	
-	
 									<div class="list_wrap">
-										<p class="list_wrap_say">2003年开业  511间房   <a href="#">联系电话</a><br>　　
-三亚喜来登度假酒店位于亚龙湾的中心，正对亚龙湾高尔夫球场。湛蓝的大海和银白的沙滩是海洋生物栖息繁衍的天堂和户外娱乐活动的理想之地。<br>
-您在客房内便可观赏到美丽的海景。专为儿童配设的儿童乐园、室外泳池、私人海滩等设施都是亲子游乐的好去处，是全家感受亲子时光的好选择。<br>
-这里餐饮服务设施种类繁多，有瑶池西餐厅、香料园亚洲餐厅、白云阁中餐厅、池畔吧、美景台大堂吧、桑吧葡萄酒吧等，时尚入流，充分融合了亚欧菜肴特色；可容纳1400人的大宴会厅及16个会议厅，为您的商务出行提供便利。<br>
-如果您想玩刺激的项目，康乐中心可为您安排托艇冲浪、滑水、航海等活动。这里的SPA为您提供各种舒缓压力、安心静性的疗养服务。
-</p>
+										<p class="list_wrap_say" th:text="${hotel.details}"></p>
 									</div>
-									
 								</div>
 							
 						</div>
@@ -532,18 +329,18 @@
 											<li><i class="icon-ok-circle"></i>免费停车场</li>
 											<li><i class="icon-map-marker"></i>免费旅游交通图</li>
 											<li><i class="icon-rss"></i>有无线上网</li>
-											<li><i class=" icon-file-alt"></i>大堂免费报纸</li>
-											<li><i class="icon-food"></i>中餐厅</li>
-											<li><i class="icon-food"></i>西餐厅</li>
-											<li><i class="icon-ok-circle"></i>残疾人客房</li>
-											<li><i class="icon-shopping-cart"></i>商场</li>
-											<li><i class="icon-ok-circle"></i>前台保险箱</li>
-											<li><i class="icon-ok-circle"></i>自动取款机</li>
-											<li><i class="icon-ok-circle"></i>大堂吧</li>
-											<li><i class="icon-ok-circle"></i>电梯</li>
+											<li><i class=" icon-fcle"></i>电梯</li>
 											<li><i class="icon-ok-circle"></i>中央空调</li>
 											<li><i class="icon-ok-circle"></i>多功能厅</li>
-											<li><i class="icon-ok-circle"></i>公共音响系统</li>
+											<li><i class="icon-ok-cile-alt"></i>大堂免费报纸</li>
+                                            <li><i class="icon-food"></i>中餐厅</li>
+                                            <li><i class="icon-food"></i>西餐厅</li>
+                                            <li><i class="icon-ok-circle"></i>残疾人客房</li>
+                                            <li><i class="icon-shopping-cart"></i>商场</li>
+                                            <li><i class="icon-ok-circle"></i>前台保险箱</li>
+                                            <li><i class="icon-ok-circle"></i>自动取款机</li>
+                                            <li><i class="icon-ok-circle"></i>大堂吧</li>
+                                            <li><i class="icon-ok-cirircle"></i>公共音响系统</li>
 											<li><i class="icon-ok-circle"></i>公共区域闭路电视监控</li>
 
 										</ul>
@@ -774,17 +571,17 @@
 									
 								</ul>
 
-								<div class="all_data all_data_cur">
-									<ul class="comment_list">
+								<div class="all_data all_data_cur" >
+									<ul class="comment_list" th:each="com:${comments}">
 										<li>
 											<div class="author ">
 												<a href="javascript:;">
 													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
 												</a>
 												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
+												<div th:each="u:${users}">
+													<p th:text="${u.username}" th:if="${u.id==com.userid}"></p>
+												</div>
 												<span>
 													商务出差
 												</span>
@@ -793,9 +590,7 @@
 												<span>商务出差   2016.11.25 入住 </span>
 												<span>高尔夫豪华海景房</span>
 											</p>
-											<p class="comment_detail">
-												客观点评下 喜来登是公务接待的不二之选，房型正气 不像其他酒店歪瓜裂枣的。挑高也舒服。朋友住美高梅，明显压抑。园林绿化相当有味道。 游泳池不多，沙滩的那个泳池如图，水深1.7-2.0米 而两米区域又是妹子拍照的角度，但你让她们160+小身板的旱鸭子游过去？这个泳池很漂亮 建议多建设个。 整体推荐入住，不会后悔。
-											</p>
+											<p class="comment_detail" th:text="${com.content}"></p>
 											<div class="comment_pic_list">
 												<a href="#"><img src="images/icon/pic_list100100_xxx1212_03.jpg" height="100" width="100" alt=""></a>
 												<a href="#"><img src="images/icon/pic_list100100_xxx1212_05.jpg" height="100" width="100" alt=""></a>
@@ -808,246 +603,6 @@
 												<a href="#">2016-09-05 18:47</a>
 												<a href="#">来自：i 旅行</a>
 											</p>
-
-
-										</li>
-									</ul>
-
-									<ul class="comment_list">
-										<li>
-											<div class="author ">
-												<a href="javascript:;">
-													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-												</a>
-												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
-												<span>
-													家庭亲子
-												</span>
-											</div>
-											<p class="comment_info">
-												<span>家庭亲子   2016.11.25 入住 </span>
-												<span>高尔夫豪华海景房</span>
-											</p>
-											<p class="comment_detail">
-												宝宝2岁生日携全家旅游度假，接机存在误导，提示的预定房间成人人数，结果没有算上宝宝，其实应该算实际人数即可，酒店还是很好的，房间挺大，也很干净，服务员几乎每天都给开夜床，第一天晚上加的婴儿床感觉太深让服务员加了两个床垫进去，小伙子服务很麻利，还让我签了安全免责，可以理解。早餐品种繁多，可以满足老人和孩子的各种需求，因为宝宝在餐厅不好好吃饭，所以特别要求了早餐蒸好一份蛋羹送到房间，服务员还很贴心的给了美极鲜。总体评价酒店棒棒哒！全家人都很满意！
-											</p>
-
-											<p class="detail_comment_tips">
-												<a href="#">2016-09-05 18:47</a>
-												<a href="#">来自：i 旅行</a>
-											</p>
-
-
-										</li>
-									</ul>
-
-									<ul class="comment_list">
-										<li>
-											<div class="author ">
-												<a href="javascript:;">
-													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-												</a>
-												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
-												<span>
-													情侣出游
-												</span>
-											</div>
-											<p class="comment_info">
-												<span>情侣出游   2016.11.25 入住 </span>
-												<span>高尔夫豪华海景房</span>
-											</p>
-											<p class="comment_detail">
-												作为一个在酒店大数据公司上班的员工，深知每一个点评对酒店的重要性，我也本着客观公正的态度来对这一晚三亚喜来登做出评价。也希望酒店领导可以重视下面出现的问题，可以得到真正的走心的改善。 拼车是大巴车，到了机场找到临时停车场摆渡车，做到临时停车场即可看到接机人员，很方便，也没等多久，他们就安排发车了，虽然车有一点点破，但是好评！ 到了喜来登，两位服务员小伙子迎上来拿行李，本来我们箱子也不重，他们争相帮我们开大巴车的储物门，绕了一圈才找到箱子，帮我们拖进去了，好评！
-											</p>
-
-											<p class="detail_comment_tips">
-												<a href="#">2016-09-05 18:47</a>
-												<a href="#">来自：i 旅行</a>
-											</p>
-
-
-										</li>
-									</ul>
-								</div>
-
-								<div class="all_data">
-									<ul class="comment_list">
-										<li>
-											<div class="author ">
-												<a href="javascript:;">
-													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-												</a>
-												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
-												<span>
-													商务出差
-												</span>
-											</div>
-											<p class="comment_info">
-												<span>商务出差   2016.11.25 入住 </span>
-												<span>高尔夫豪华海景房</span>
-											</p>
-											<p class="comment_detail">
-												客观点评下 喜来登是公务接待的不二之选，房型正气 不像其他酒店歪瓜裂枣的。挑高也舒服。朋友住美高梅，明显压抑。园林绿化相当有味道。 游泳池不多，沙滩的那个泳池如图，水深1.7-2.0米 而两米区域又是妹子拍照的角度，但你让她们160+小身板的旱鸭子游过去？这个泳池很漂亮 建议多建设个。 整体推荐入住，不会后悔。
-											</p>
-											<div class="comment_pic_list">
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_03.jpg" height="100" width="100" alt=""></a>
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_05.jpg" height="100" width="100" alt=""></a>
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_07.jpg" height="100" width="100" alt=""></a>
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_09.jpg" height="100" width="100" alt=""></a>
-
-											</div>
-
-											<p class="detail_comment_tips">
-												<a href="#">2016-09-05 18:47</a>
-												<a href="#">来自：i 旅行</a>
-											</p>
-
-
-										</li>
-									</ul>
-
-									<ul class="comment_list">
-										<li>
-											<div class="author ">
-												<a href="javascript:;">
-													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-												</a>
-												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
-												<span>
-													情侣出游
-												</span>
-											</div>
-											<p class="comment_info">
-												<span>情侣出游   2016.11.25 入住 </span>
-												<span>高尔夫豪华海景房</span>
-											</p>
-											<p class="comment_detail">
-												作为一个在酒店大数据公司上班的员工，深知每一个点评对酒店的重要性，我也本着客观公正的态度来对这一晚三亚喜来登做出评价。也希望酒店领导可以重视下面出现的问题，可以得到真正的走心的改善。 拼车是大巴车，到了机场找到临时停车场摆渡车，做到临时停车场即可看到接机人员，很方便，也没等多久，他们就安排发车了，虽然车有一点点破，但是好评！ 到了喜来登，两位服务员小伙子迎上来拿行李，本来我们箱子也不重，他们争相帮我们开大巴车的储物门，绕了一圈才找到箱子，帮我们拖进去了，好评！
-											</p>
-
-											<p class="detail_comment_tips">
-												<a href="#">2016-09-05 18:47</a>
-												<a href="#">来自：i 旅行</a>
-											</p>
-
-
-										</li>
-									</ul>
-								</div>
-
-								<div class="all_data">
-
-									<ul class="comment_list">
-										<li>
-											<div class="author ">
-												<a href="javascript:;">
-													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-												</a>
-												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
-												<span>
-													家庭亲子
-												</span>
-											</div>
-											<p class="comment_info">
-												<span>家庭亲子   2016.11.25 入住 </span>
-												<span>高尔夫豪华海景房</span>
-											</p>
-											<p class="comment_detail">
-												宝宝2岁生日携全家旅游度假，接机存在误导，提示的预定房间成人人数，结果没有算上宝宝，其实应该算实际人数即可，酒店还是很好的，房间挺大，也很干净，服务员几乎每天都给开夜床，第一天晚上加的婴儿床感觉太深让服务员加了两个床垫进去，小伙子服务很麻利，还让我签了安全免责，可以理解。早餐品种繁多，可以满足老人和孩子的各种需求，因为宝宝在餐厅不好好吃饭，所以特别要求了早餐蒸好一份蛋羹送到房间，服务员还很贴心的给了美极鲜。总体评价酒店棒棒哒！全家人都很满意！
-											</p>
-
-											<p class="detail_comment_tips">
-												<a href="#">2016-09-05 18:47</a>
-												<a href="#">来自：i 旅行</a>
-											</p>
-
-
-										</li>
-									</ul>
-
-									<ul class="comment_list">
-										<li>
-											<div class="author ">
-												<a href="javascript:;">
-													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-												</a>
-												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
-												<span>
-													情侣出游
-												</span>
-											</div>
-											<p class="comment_info">
-												<span>情侣出游   2016.11.25 入住 </span>
-												<span>高尔夫豪华海景房</span>
-											</p>
-											<p class="comment_detail">
-												作为一个在酒店大数据公司上班的员工，深知每一个点评对酒店的重要性，我也本着客观公正的态度来对这一晚三亚喜来登做出评价。也希望酒店领导可以重视下面出现的问题，可以得到真正的走心的改善。 拼车是大巴车，到了机场找到临时停车场摆渡车，做到临时停车场即可看到接机人员，很方便，也没等多久，他们就安排发车了，虽然车有一点点破，但是好评！ 到了喜来登，两位服务员小伙子迎上来拿行李，本来我们箱子也不重，他们争相帮我们开大巴车的储物门，绕了一圈才找到箱子，帮我们拖进去了，好评！
-											</p>
-
-											<p class="detail_comment_tips">
-												<a href="#">2016-09-05 18:47</a>
-												<a href="#">来自：i 旅行</a>
-											</p>
-
-
-										</li>
-									</ul>
-								</div>
-
-								<div class="all_data">
-									<ul class="comment_list">
-										<li>
-											<div class="author ">
-												<a href="javascript:;">
-													<i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i>
-												</a>
-												<strong>5分</strong>
-												<p>
-													思****209
-												</p>
-												<span>
-													商务出差
-												</span>
-											</div>
-											<p class="comment_info">
-												<span>商务出差   2016.11.25 入住 </span>
-												<span>高尔夫豪华海景房</span>
-											</p>
-											<p class="comment_detail">
-												客观点评下 喜来登是公务接待的不二之选，房型正气 不像其他酒店歪瓜裂枣的。挑高也舒服。朋友住美高梅，明显压抑。园林绿化相当有味道。 游泳池不多，沙滩的那个泳池如图，水深1.7-2.0米 而两米区域又是妹子拍照的角度，但你让她们160+小身板的旱鸭子游过去？这个泳池很漂亮 建议多建设个。 整体推荐入住，不会后悔。
-											</p>
-											<div class="comment_pic_list">
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_03.jpg" height="100" width="100" alt=""></a>
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_05.jpg" height="100" width="100" alt=""></a>
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_07.jpg" height="100" width="100" alt=""></a>
-												<a href="#"><img src="images/icon/pic_list100100_xxx1212_09.jpg" height="100" width="100" alt=""></a>
-
-											</div>
-
-											<p class="detail_comment_tips">
-												<a href="#">2016-09-05 18:47</a>
-												<a href="#">来自：i 旅行</a>
-											</p>
-
-
 										</li>
 									</ul>
 								</div>

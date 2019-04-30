@@ -1,10 +1,21 @@
 package com.itrip.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class ItripHotel {
     private ItripAreaDic itripAreaDic;
-    private ItripHotelRoom itripHotelRoom;
+    private List<ItripHotelRoom> itripHotelRoom;
+    private List<ItripComment> itripComment;
+    private  List<ItripHotelFeature> itripHotelFeatures;
+
+    public List<ItripHotelFeature> getItripHotelFeatures() {
+        return itripHotelFeatures;
+    }
+
+    public void setItripHotelFeatures(List<ItripHotelFeature> itripHotelFeatures) {
+        this.itripHotelFeatures = itripHotelFeatures;
+    }
 
     public ItripAreaDic getItripAreaDic() {
         return itripAreaDic;
@@ -14,12 +25,20 @@ public class ItripHotel {
         this.itripAreaDic = itripAreaDic;
     }
 
-    public ItripHotelRoom getItripHotelRoom() {
+    public List<ItripHotelRoom> getItripHotelRoom() {
         return itripHotelRoom;
     }
 
-    public void setItripHotelRoom(ItripHotelRoom itripHotelRoom) {
+    public void setItripHotelRoom(List<ItripHotelRoom> itripHotelRoom) {
         this.itripHotelRoom = itripHotelRoom;
+    }
+
+    public List<ItripComment> getItripComment() {
+        return itripComment;
+    }
+
+    public void setItripComment(List<ItripComment> itripComment) {
+        this.itripComment = itripComment;
     }
 
     private Long id;
@@ -61,6 +80,16 @@ public class ItripHotel {
     private String facilities;
 
     private String hotelpolicy;
+
+    private Integer eId;
+
+    public Integer geteId() {
+        return eId;
+    }
+
+    public void seteId(Integer eId) {
+        this.eId = eId;
+    }
 
     public Long getId() {
         return id;

@@ -2,6 +2,7 @@ package com.itrip.dao;
 
 import com.itrip.model.ItripLabelDic;
 import java.util.List;
+import java.util.Map;
 
 public interface ItripLabelDicMapper {
     int deleteByPrimaryKey(Long id);
@@ -13,4 +14,6 @@ public interface ItripLabelDicMapper {
     List<ItripLabelDic> selectAll();
 
     int updateByPrimaryKey(ItripLabelDic record);
+
+    ItripLabelDic selectSelf();
 }

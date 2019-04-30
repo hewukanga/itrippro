@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itrip.dao.HotelViewMapper">
+  <resultMap id="BaseResultMap" type="com.itrip.model.HotelView">
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="hotelName" jdbcType="VARCHAR" property="hotelname" />
+    <result column="cityId" jdbcType="BIGINT" property="cityid" />
+    <result column="imgUrl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="roomPrice" jdbcType="DECIMAL" property="roomprice" />
+  </resultMap>
+  <insert id="insert" parameterType="com.itrip.model.HotelView">
+    insert into hotelview (id, hotelName, cityId,
+      imgUrl, roomPrice)
+    values (#{id,jdbcType=BIGINT}, #{hotelname,jdbcType=VARCHAR}, #{cityid,jdbcType=BIGINT}, 
+      #{imgurl,jdbcType=VARCHAR}, #{roomprice,jdbcType=DECIMAL})
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select id, hotelName, cityId, imgUrl, roomPrice
+    from hotelview
+  </select>
+  <select id="selectBy" resultMap="BaseResultMap">
+    select id, hotelName, cityId, imgUrl, roomPrice
+    from hotelview
+    where cityId=#{cityid}
+    limit 0,6
+  </select>
+  <select id="selectHotel" resultMap="BaseResultMap">
+    select id, hotelName, cityId, imgUrl, roomPrice
+    from hotelview
+    where id=#{id}
+  </select>
+</mapper>

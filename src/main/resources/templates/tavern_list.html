@@ -15,8 +15,10 @@
     <link rel="stylesheet" th:href="@{/lib/font-awesome/css/font-awesome.min.css}">
     <script th:src="@{/lib/jquery-2.1.4.min.js}" type="text/javascript"></script>
     <script th:src="@{/lib/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/common.js}"></script>
     <script th:src="@{/lib/cityselect/cityselect.js}" type="text/javascript"></script>
     <script th:src="@{/lib/My97DatePicker/WdatePicker.js}"></script>
+    <script src="js/jquery-3.3.1.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -39,7 +41,7 @@
                 <li class="i-top-phone">
                     <a href="#"><i class="icon-mobile-phone"></i></a>
                     <div class="i-top-app i-top-appL">
-                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img th:src="@{/images/img/erweima_1126.jpg}" height="102" width="102" alt="">
                         <p>手机扫码快速下载</p>
                         <p>App享受最多50% 优惠力度</p>
                     </div>
@@ -47,7 +49,7 @@
                 <li class="i-top-phone i-top-wei">
                     <a href="#"><i class="icon-comments"></i></a>
                     <div class="i-top-app i-top-app-wei">
-                        <img src="images/img/erweima_1126.jpg" height="102" width="102" alt="">
+                        <img th:src="@{/images/img/erweima_1126.jpg}" height="102" width="102" alt="">
                         <p>i旅行微信公众号: <a href="#">ilvxing</a></p>
                         <p>手机扫一扫，享受专属福利</p>
                     </div>
@@ -70,21 +72,21 @@
             <li><a href="strategyindex"><i class="icon-book"></i>攻略</a></li>
         </ul>
         <div class="i-nav-login">
-            <a href="login">登陆</a>
+            <a href="../login.html">登陆</a>
             <span>|</span>
-            <a href="register">注册</a>
+            <a href="../register.html">注册</a>
         </div>
     </div>
 </div>
 <!-- nav结束 -->
 <div class="travel tavern-list">
     <div class="tavern-list-head">
-        <div class="localtion-item">您所在的位置：<a>酒店预订&gt;</a>北京酒店</div>
+        <div class="localtion-item">您所在的位置：<a>酒店预订&gt;</a><span th:text="${session.cityname}"></span>酒店</div>
     </div>
     <div class="travel-body list-body">
         <div id="myTabContent" class="tavern-list-param">
             <div class="search-title">
-                目的地：<input id="tavernCitySelect1" value="<th:text='${session.page.name}'>" placeholder="请选择目的地">
+                目的地：<input id="tavernCitySelect1" th:value="${session.cityname}" placeholder="请选择目的地">
                 入住： <input type="text" placeholder="2016-12-08"
                            onfocus="WdatePicker({doubleCalendar:true,dateFmt:'yyyy-MM-dd',position:{left:-48,top:17}})">
                 退房：<input type="text" placeholder="2016-12-20"
@@ -174,7 +176,7 @@
             </div>
         </div>
         <div style="margin: 10px 0" class="tavern-params-title">
-            <span style="color: red;font-weight: 800;font-size: 18px;">8</span>&nbsp;家酒店 <span>您已选择：</span>
+            <span style="color: red;font-weight: 800;font-size: 18px;" th:text="${session.hotels.size()}"></span>&nbsp;家酒店 <span>您已选择：</span>
             <button class="btn">北京 <i class="icon-remove"></i></button>
         </div>
         <div class="tavern-grid-title">
@@ -206,33 +208,28 @@
             </div>
         </div>
 
-
-
-
-
-
-
-        <div class="tavern-model-grid">
-            <div class="modal-grid-left">
+        <div class="tavern-model-grid"  th:each="li,stat:${session.hotels}" th:if="${li!=null}" >
+            <div th:each="v:${session.views}">
+            <div class="modal-grid-left" >
                 <div class="recommend">
                     <span class="text">力推</span>
                 </div>
-                <img src="images/img/holist06_0316.jpg" style="width: 285px">
+                <img th:src="@{${v.imgurl}}" th:if="${li.id==v.id}" style="width: 285px">
             </div>
             <div class="model-grid-right">
-                <div class="model-grid-title">北京亚运村鸟巢和颐酒店</div>
+                <div id="hotelname" class="model-grid-title" th:text="${li.hotelname}"></div>
                 <div class="model-grid-label">
                     <i class="fa fa-diamond"></i>
                     <i class="fa fa-diamond"></i>
                     <i class="fa fa-diamond"></i>
                     <i class="fa fa-diamond"></i>
                     <i class="fa fa-diamond"></i>
-                    <span class="item" >商务出行</span>
-                    <span class="item" >会议酒店</span>
-                    <span class="item" >精品酒店</span>
+                    <div th:each="fea:${li.itripHotelFeatures}">
+                        <span class="item" th:text="${fea.itripLabelDic.name}"></span>
+                    </div>
                 </div>
                 <div class="model-grid-message">
-                    朝阳区亚运村小营西路11号惠新东桥北，近鸟巢、水立方、国家会议中心。 【 亚运村、奥体中心地区】
+                    <p th:text="${li.address}"></p>
                     <br>
                     <a>交通地图</a> <a>周边街景</a>
                     <i class="fa fa-wifi"></i>
@@ -241,23 +238,28 @@
                 </div>
                 <div class="model-grid-grade">
                     <div class="cell-grade">
-                        <div class="left"> <span>4.6</span>/5分</div>
+                        <div class="left" th:each="ct:${li.itripComment}">
+                            <span>4.6</span>/5分
+                        </div>
                         <div class="right"> 97%用户推荐</div>
                         <div>源自968位住客点评</div>
                     </div>
                     <div class="cell-money">
-                        ￥<span>384</span>起
+                        ￥<span th:text="${v.roomprice}" th:if="${v.id==li.id}"></span>起
                     </div>
-                    <button class="btn btn-default">查看详情</button>
+                    <button class="btn btn-default"><a th:href="'hotelDetail?hotelname='+${li.hotelname}">查看详情</a></button>
                 </div>
+            </div>
             </div>
         </div>
 
         <div class="travel-model-pagination">
-            <ul class="pagination" th:each="i:${session.page}">
-                <li><a href="#">&laquo;</a></li>
-                <li th:text="${i}"></li>
-                <li><a href="#">&raquo;</a></li>
+            <ul class="pagination" >
+                <!--<li><a th:href="'seleHotels?pageNum='+${page.prePage}" th:if="${page.hasPreviousPage}">&laquo;</a></li>-->
+                <!--<li th:each="p:${page.navigatepageNums}">-->
+                    <!--<a th:href="'seleHotels?pageNum='+${p}" th:text="${p}"></a>-->
+                <!--</li>-->
+                <!--<li><a th:href="'seleHotels?pageNum='+${page.nextPage}" th:if="${page.hasNextPage}">&raquo;</a></li>-->
             </ul>
         </div>
     </div>
@@ -277,11 +279,11 @@
         </div>
         <div class="i_downright">
             <div class='i_wechat'>
-                <img src="images/icon/i_wechat_11.jpg" alt="">
+                <img src="../images/icon/i_wechat_11.jpg" alt="">
                 <span>微信公众平台</span>
             </div>
             <div class="i_APP">
-                <img src="images/icon/i_APP_11.jpg" alt="">
+                <img src="../images/icon/i_APP_11.jpg" alt="">
                 <span>APP下载</span>
             </div>
         </div>
@@ -293,30 +295,30 @@
         <p><span class="i-footer-hui"></span>沪公网备310105020000xx号</p>
         <p>旅游违法行为举报电话12318 丨服务质量投诉电话 962020 丨<a href="#">北京市旅游网站落实诚信建设主体责任承诺书</a></p>
         <ul>
-            <li><a href="#"><img src="images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
-            <li><a href="#"><img src="images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_11.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_13.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_15.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_17.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_19.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_21.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_23.jpg" height="32" width="88" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_25.jpg" height="32" width="128" alt=""></a></li>
+            <li><a href="#"><img src="../images/icon/icon1126_27.jpg" height="32" width="102" alt=""></a></li>
         </ul>
     </div>
 </div>
 <!-- footer结束 -->
-<script src="js/common.js"></script>
-<script src="tavern/tavern_list.js" type="text/javascript"></script>
+
+<script src="js/tavern_list.js" type="text/javascript"></script>
 <script>
     var style = "  <style> input{ top: -9px !important;  }</style>";
     var isIE = !!window.ActiveXObject;
     if (isIE&&(document.documentMode!=11)) {
         document.write(style);
     }
+
     window.onload = function (e) {
         tavernList.init();
-
     }
 </script>
 </body>

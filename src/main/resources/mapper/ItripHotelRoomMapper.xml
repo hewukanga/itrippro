@@ -18,6 +18,18 @@
     <result column="modifyDate" jdbcType="TIMESTAMP" property="modifydate" />
     <result column="modifiedBy" jdbcType="BIGINT" property="modifiedby" />
   </resultMap>
+
+  <select id="selectBed" resultMap="BaseResultMap">
+    select * from itrip_hotel_room
+    where
+  </select>
+
+  <select id="selectByHotel" resultMap="BaseResultMap">
+    select * from itrip_hotel_room
+    where hotelId=#{hotelid}
+    order by roomPrice
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from itrip_hotel_room
     where id = #{id,jdbcType=BIGINT}
